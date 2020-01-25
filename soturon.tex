@@ -1,0 +1,80 @@
+\documentclass[article,nontitlepage,]{dennou777}
+
+\ltjsetparameter{jacharrange={-2}}%ギリシア文字、キリル文字を AL Char に。
+\usepackage[no-math,match,deluxe,fontspec,jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
+
+\usepackage[T1]{fontenc}
+\usepackage{yhmath,amsmath,mathtools,amssymb,mathrsfs,rsfso,mleftright}
+\usepackage[math]{kurier}
+\usepackage[euler-digits]{eulervm}
+\usepackage[scaled]{beramono}
+%\usepackage{classico,newpxtext}
+\DeclareMathAlphabet{\mathtt}{T1}{fvm}{m}{n}
+\DeclareMathAlphabet{\mathsf}{T1}{uop}{m}{n}
+
+\usepackage[unicode,colorlinks]{hyperref}
+\hypersetup{linkcolor=,urlcolor=teal}
+
+\usepackage{pxrubrica}
+
+\usepackage{autobreak}
+
+\usepackage{tcolorbox}
+
+\setmainfont[
+	Ligatures=TeX,
+	BoldFont=FOT-MatissePro-EB,
+	ItalicFont=FOT-MatissePro-EB,
+]{FOT-TsukuAntiqueLMinStd-L}
+\setsansfont[
+	Ligatures=TeX,
+	BoldFont=FOT-TsukuAntiqueLGoStd-B,
+	ItalicFont=FOT-TsukuAntiqueLGoStd-B,
+]{FOT-TsukuAntiqueLGoStd-B}
+\setmainjfont[
+	Ligatures=TeX,
+	CharacterWidth=Proportional,
+	JFM=prop,
+	BoldFont=FOT-MatissePro-EB,
+	ItalicFont=FOT-MatissePro-EB,
+	YokoFeatures={JFM=jlreq},
+]{FOT-TsukuAntiqueLMinStd-L}
+\setsansjfont[
+	Ligatures=TeX,
+	CharacterWidth=Proportional,
+	JFM=prop,
+	BoldFont=FOT-TsukuAntiqueLGoStd-B,
+	ItalicFont=FOT-TsukuAntiqueLGoStd-B,
+	YokoFeatures={JFM=jlreq},
+]{FOT-TsukuAntiqueLGoStd-B}
+\setmonofont[
+	Ligatures=TeX,
+	Scale=0.89,
+]{DejaVu Sans Mono}
+\setmonojfont[
+	Ligatures=TeX,
+	Scale=0.89,
+]{NotoSansMonoCJKjp-Regular}
+
+\allowdisplaybreaks[4]
+\ltjenableadjust[lineend=extended,priority=true,profile=true,linestep=true]
+
+%%%%%%%%%%%%自作マクロ
+
+%%matrix
+\newcommand{\Mtx}[1]{\begin{matrix} #1 \end{matrix}}
+\newcommand{\pMtx}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\bMtx}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\BMtx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}}
+\newcommand{\vMtx}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\newcommand{\VMtx}[1]{\begin{Vmatrix} #1 \end{Vmatrix}}
+
+\newcommand{\hmvec}{\mathbold}
+\newcommand{\eqdef}{\stackrel{\mathrm{def}}{=}}
+
+\Dtitle{}
+\Dauthor{02160611 人見祥磨}
+
+\begin{document}
+\maketitle
+\end{document}
