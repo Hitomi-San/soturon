@@ -1,0 +1,82 @@
+%! LuaLaTeX 文書
+\documentclass[unicode,colorlinks]{beamer}
+\usetheme{metropolis}
+\usefonttheme{professionalfonts}
+
+\hypersetup{linkcolor=blue,urlcolor=teal}
+
+\usepackage{luatexja}
+\ltjsetparameter{jacharrange={-2,-3,-8}}
+\usepackage[no-math,match,deluxe]{luatexja-preset}
+
+\usepackage{graphicx,xcolor}
+\usepackage{pxrubrica}
+\usepackage{tcolorbox}
+\usepackage{bxwareki}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+
+\usepackage{bxokumacro}
+\usepackage{keystroke}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,mathtools,amssymb,mathrsfs,rsfso,mleftright}
+\usepackage[math]{kurier}
+\usepackage[euler-digits]{eulervm}
+\usepackage[scaled]{beramono}
+\allowdisplaybreaks[4]
+
+%%%%%%%%%% 商用フォントを用いているので、自分でタイプセットする場合は適当に以下を変えてください
+\setmainfont[
+	Ligatures=TeX,
+	BoldFont=FOT-RodinNTLGPro-EB,
+	ItalicFont=FOT-RodinNTLGPro-EB,
+]{FOT-RodinNTLGPro-B}
+\setsansfont[
+	Ligatures=TeX,
+	BoldFont=FOT-RodinNTLGPro-EB,
+	ItalicFont=FOT-RodinNTLGPro-EB,
+]{FOT-RodinNTLGPro-B}
+\setmainjfont[
+	Ligatures=TeX,
+	CharacterWidth=Proportional,
+	JFM=prop,
+	BoldFont=FOT-RodinNTLGPro-EB,
+	ItalicFont=FOT-RodinNTLGPro-EB,
+]{FOT-RodinNTLGPro-B}
+\setsansjfont[
+	Ligatures=TeX,
+	CharacterWidth=Proportional,
+	JFM=prop,
+	BoldFont=FOT-RodinNTLGPro-EB,
+	ItalicFont=FOT-RodinNTLGPro-EB,
+]{FOT-RodinNTLGPro-B}
+\setmonofont[
+	Ligatures=TeX
+]{DejaVu Sans Mono}
+\setmonojfont[
+	Ligatures=TeX,
+]{NotoSansMonoCJKjp-Regular}
+
+%%%%%%%%%% 以下は自前コマンド
+
+\newcommand{\centeralign}[1]{\rule{0pt}{0pt}\hfill#1\hfill\rule{0pt}{0pt}}
+\newcommand{\Unit}[1]{\,\mathrm{#1}}
+
+\setlength{\parskip}{2ex}
+
+\title{大気放射の基礎\\--Liou著 藤枝・深堀訳 (2014) の講読--}
+\author{北海道大学理学部 人見祥磨}
+\date{\warekitoday}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{目次}
+	\tableofcontents
+\end{frame}
+
+\section{大気の熱赤外放射伝達}
+
+\end{document}
