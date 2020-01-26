@@ -77,12 +77,40 @@
 	\tableofcontents
 \end{frame}
 
+\section{線の広がり}
+
+\begin{frame}
+	\frametitle{線の広がり}
+	単色の射出は現実には観測されない。
+
+	原子や分子への外部からの影響と、射出の際のエネルギー損失のため、
+	エネルギー遷移する間にエネルギー準位が僅かに変化する。
+
+	その結果、非単色の放射となり、有限の幅を持つスペクトル線が観測される。
+\end{frame}
+
+\begin{frame}
+	\frametitle{ローレンツ線形}
+	ローレンツ線形: 圧力による広がり。衝突によって広げられたスペクトル線の線形。
+
+	\[k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]\]
+
+	$k_\nu$: 吸収係数 ;\quad $\nu_0$: 理想的な単色の吸収線の波数;\\
+	$\alpha$: 吸収線の半値半幅:（圧力と温度の関数）;\\
+	$f$: 形状因子 (shape factor);\quad $\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
+\end{frame}
+
+\begin{frame}
+	\frametitle{ローレンツ線形}
+	\centeralign{\includegraphics[width=0.8\textwidth]{lorentz.jpg}}
+\end{frame}
+
 \section{大気の熱赤外放射伝達}
 
 \begin{frame}
 	\frametitle{大気の熱赤外放射伝達}
-	アルベド: $\bar r$; 地球半径: $a_e$;\\
-	太陽定数: $S=1366\Unit{W\,m^{-2}}$; 地球大気系の平衡温度: $T_e$
+	アルベド: $\bar r$;\quad 地球半径: $a_e$;\quad\\
+	太陽定数: $S=1366\Unit{W\,m^{-2}}$;\quad 地球大気系の平衡温度: $T_e$
 	\begin{block}{放射に関してのバランス方程式}
 		ステファン・ボルツマンの法則から
 		\[S\cdot\pi{a_e}^2(1-\bar r)=\sigma{T_e}^4\cdot4\pi{a_e}^2\]
@@ -95,8 +123,8 @@
 
 \begin{frame}
 	\frametitle{放射伝達のための一般的な方程式}
-	放射束の放射強度: $I_\nu$; 吸収係数: $k_\nu$;\\
-	吸収気体の密度: $\rho_a$; 光路長: $s$; 放射源関数: $J_\nu$
+	放射束の放射強度: $I_\nu$;\quad 吸収係数: $k_\nu$;\\
+	吸収気体の密度: $\rho_a$;\quad 光路長: $s$;\quad 放射源関数: $J_\nu$
 	\[-\frac{1}{k_\nu \rho_a}\frac{dI_\nu}{ds}=I_\nu-J_\nu\]
 
 	\begin{description}
