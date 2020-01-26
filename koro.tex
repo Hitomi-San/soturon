@@ -139,11 +139,59 @@
 	$B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
 	\[-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]\]
 
-	光学的深さを導入（$p=\rho_a/\rho$ は気体の混合比）
+	光学的深さ $\tau$ を導入（$p=\rho_a/\rho$ は気体の混合比）
 	\[\tau=\int^{\mathrm{TOA}}_{z} k_\nu[z]\rho_a[z]\,dz=\int^p_0 k_\nu[p]q[p]\frac{dp}{g}\]
 	\[d\tau=-k_\nu[z]\rho_a[z]\,dz=k_\nu[p]q[p]dp/g\]
 
 	放射伝達方程式を $\tau$ 座標に変換
 	\[\mu\frac{dI_\nu[\tau,\mu]}{d\tau}=I_\nu[\tau,\mu]-B_\nu[\tau]\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{境界条件}
+	境界条件: 地球表面からの射出と大気上端 (TOA) からの射出が等方性となる
+
+	全光学的厚さ: $\tau_*$
+
+	地球表面は赤外で黒体とみなしてよいので $I_\nu[\tau_*,\mu]=B_\nu[\tau_*]$
+
+	大気上端では $I_\nu[0,-\mu]=B[\mathrm{TOA}]\simeq0$
+\end{frame}
+
+\begin{frame}
+	\frametitle{放射強度の型式解}
+	単色の透過率 $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義
+
+	放射強度の型式解は
+	\begin{align*}
+		I^\uparrow_\nu[\tau,\mu]
+			&=B_\nu[\tau_*]T_\nu\mleft[\frac{\tau_\nu-\tau}{\mu}\mright]
+			-\int^{\tau_*}_\tau B_\nu[\tau']\frac{d}{d\tau'}T_\nu\mleft[\frac{\tau'-\tau}{\mu}\mright]d\tau'\\
+		I^\downarrow_\nu[\tau,-\mu]
+			&=\int^\tau_0 B_\nu[\tau']\frac{d}{d\tau'}T_\nu\mleft[\frac{\tau-\tau'}{\mu}\mright]d\tau'
+	\end{align*}
+
+	大気の加熱率の計算に必要な放射フラックス密度は、上半球と下半球の放射強度の和
+	\[F^{\uparrow\downarrow}_\nu[\tau]=2\pi\int^1_0 I^{\uparrow\downarrow}_\nu[\tau,\pm\mu]\mu\,d\mu\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{大気の放射フラックス密度}
+	角度方向の積分を考慮するため、拡散透過率 $T^f_\nu$ を導入
+	\[T^f_\nu[\tau]=2\int^1_0 T_\nu\mleft[\frac{\tau}{\mu}\mright]\mu\,d\mu\]
+
+	\begin{align*}
+		F^\uparrow_\nu[\tau]
+			&=\pi B_\nu[\tau_*]T^f_\nu[\tau_*-\tau]
+			-\int^{\tau_*}_\tau \pi B_\nu[\tau']\frac{d}{d\tau'}T^f_\nu[\tau'-\tau]d\tau'\\
+		F^\downarrow_\nu[\tau]
+			&=\int^\tau_0 \pi B_\nu[\tau']\frac{d}{d\tau'}T^f_\nu[\tau-\tau']d\tau'
+	\end{align*}
+
+	放射フラックスの波数積分は、$\tau$ が波数の関数なので、
+	\[F^{\uparrow\downarrow}[z]=\int^\infty_0 F^{\uparrow\downarrow}_\nu[z]\,d\nu\]
+
+	大気の放射フラックスの計算は光学的深さに沿った波数積分を必ず含む
+
 \end{frame}
 \end{document}
