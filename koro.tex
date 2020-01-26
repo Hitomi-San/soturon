@@ -133,4 +133,17 @@
 	\end{description}
 \end{frame}
 
+\begin{frame}
+	\frametitle{$\tau$ 座標に変換}
+	放射強度は天頂角と鉛直位置のみの関数\\
+	$B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
+	\[-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]\]
+
+	光学的深さを導入（$p=\rho_a/\rho$ は気体の混合比）
+	\[\tau=\int^{\mathrm{TOA}}_{z} k_\nu[z]\rho_a[z]\,dz=\int^p_0 k_\nu[p]q[p]\frac{dp}{g}\]
+	\[d\tau=-k_\nu[z]\rho_a[z]\,dz=k_\nu[p]q[p]dp/g\]
+
+	放射伝達方程式を $\tau$ 座標に変換
+	\[\mu\frac{dI_\nu[\tau,\mu]}{d\tau}=I_\nu[\tau,\mu]-B_\nu[\tau]\]
+\end{frame}
 \end{document}
