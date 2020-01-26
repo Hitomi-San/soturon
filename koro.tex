@@ -72,6 +72,7 @@
 
 \begin{document}
 \maketitle
+\mleftright
 
 \begin{frame}{目次}
 	\tableofcontents
@@ -96,7 +97,7 @@
 	\[k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]\]
 
 	$k_\nu$: 吸収係数 ;\quad $\nu_0$: 理想的な単色の吸収線の波数;\\
-	$\alpha$: 吸収線の半値半幅:（圧力と温度の関数）;\\
+	$\alpha$: 吸収線の半値半幅（圧力と温度の関数）;\\
 	$f$: 形状因子 (shape factor);\quad $\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
 \end{frame}
 
@@ -165,10 +166,10 @@
 	放射強度の型式解は
 	\begin{align*}
 		I^\uparrow_\nu[\tau,\mu]
-			&=B_\nu[\tau_*]T_\nu\mleft[\frac{\tau_\nu-\tau}{\mu}\mright]
-			-\int^{\tau_*}_\tau B_\nu[\tau']\frac{d}{d\tau'}T_\nu\mleft[\frac{\tau'-\tau}{\mu}\mright]d\tau'\\
+			&=B_\nu[\tau_*]T_\nu\left[\frac{\tau_\nu-\tau}{\mu}\right]
+			-\int^{\tau_*}_\tau B_\nu[\tau']\frac{d}{d\tau'}T_\nu\left[\frac{\tau'-\tau}{\mu}\right]d\tau'\\
 		I^\downarrow_\nu[\tau,-\mu]
-			&=\int^\tau_0 B_\nu[\tau']\frac{d}{d\tau'}T_\nu\mleft[\frac{\tau-\tau'}{\mu}\mright]d\tau'
+			&=\int^\tau_0 B_\nu[\tau']\frac{d}{d\tau'}T_\nu\left[\frac{\tau-\tau'}{\mu}\right]d\tau'
 	\end{align*}
 
 	大気の加熱率の計算に必要な放射フラックス密度は、上半球と下半球の放射強度の和
@@ -178,7 +179,7 @@
 \begin{frame}
 	\frametitle{大気の放射フラックス密度}
 	角度方向の積分を考慮するため、拡散透過率 $T^f_\nu$ を導入
-	\[T^f_\nu[\tau]=2\int^1_0 T_\nu\mleft[\frac{\tau}{\mu}\mright]\mu\,d\mu\]
+	\[T^f_\nu[\tau]=2\int^1_0 T_\nu\left[\frac{\tau}{\mu}\right]\mu\,d\mu\]
 
 	\begin{align*}
 		F^\uparrow_\nu[\tau]
@@ -190,8 +191,49 @@
 
 	放射フラックスの波数積分は、$\tau$ が波数の関数なので、
 	\[F^{\uparrow\downarrow}[z]=\int^\infty_0 F^{\uparrow\downarrow}_\nu[z]\,d\nu\]
+	光学的深さに沿った波数積分を必ず含む
+\end{frame}
 
-	大気の放射フラックスの計算は光学的深さに沿った波数積分を必ず含む
+\begin{frame}
+	\frametitle{ラインバイライン積分}
+	ある与えられた波数と分子種には、さまざまな吸収線の吸収係数が透過率へ寄与する
+	\[\tau=\sum_j \tau_j=\int_u\sum_j k_{\nu,j}[u]\,du\]
 
+	したがって、吸収係数は吸収線強度と吸収線形の式で表すことができる
+	\[k_\nu[p,T]=\sum_j S_j[T]f_{\nu,j}[p,T]\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{分光透過率}
+	赤外放射伝達の計算をする際は、プランク関数の変動が無視しうるような
+	小さな波数区間で放射パラメーターを決めることが有効
+
+	放射強度と少佐hフラックスの方程式における基本的な放射パラメーターとして、
+	平均波数の添字 $\bar\nu$ のついた分光透過率を定義する
+	\[
+		T_{\bar\nu}[u]
+		=\int_{\Delta\nu}\exp[-\tau]\frac{d\nu}{\Delta\nu}
+		=\int_{\Delta\nu}\exp\left[-\int_u\sum_j k_{\nu,j}[u]\,du\right]\frac{d\nu}{\Delta\nu}
+	\]
+\end{frame}
+
+\section{相関 $k$ 分布法}
+
+\begin{frame}
+	\frametitle{相関 $k$ 分布法}
+	気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱う
+
+	均質な大気では分光透過率は吸収係数 $k$ の順序に依存しない\\
+	波数積分は $k$ 空間での積分に置き換えることができる
+\end{frame}
+
+\begin{frame}
+	\frametitle{相関 $k$ 分布法}
+	波数区間 $\Delta\nu$ における $k_\nu$ に対する正規化確率密度関数が
+	$f[k]$ で与えられ、その最大値と最小値がそれぞれ $k_{\mathrm{min}}\to0$、
+	$k_{\mathrm{max}}\to\infty$ だとすると、分光透過率は
+	\[T_{\bar\nu}[u]=\int_{\Delta\nu}\exp[-k_\nu u]\frac{d\nu}{\Delta\nu}=\int^\infty_0 \exp[-ku]f[k]\,dk\]
+
+	\[f[k]=\mathcal{L}^{-1}[T_{\bar\nu}[u]]\]
 \end{frame}
 \end{document}
