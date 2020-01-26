@@ -234,6 +234,60 @@
 	$k_{\mathrm{max}}\to\infty$ だとすると、分光透過率は
 	\[T_{\bar\nu}[u]=\int_{\Delta\nu}\exp[-k_\nu u]\frac{d\nu}{\Delta\nu}=\int^\infty_0 \exp[-ku]f[k]\,dk\]
 
+	確率密度関数 $f$ は分光透過率のラプラス逆変換であるとわかる
 	\[f[k]=\mathcal{L}^{-1}[T_{\bar\nu}[u]]\]
 \end{frame}
+
+\begin{frame}
+	\frametitle{相関 $k$ 分布法}
+	累積確率分布関数を定義する
+	\[g[k]=\int^k_0 f[k]\,dk\]
+
+	$g[0]=0,\ g[k\to\infty]=0,\ dg=f\,dk$ より、分光透過率は次で表すことができる
+	\[T_{\bar\nu}[u]=\int^1_0 \exp[-k[g]u]\,dg\simeq\sum_j\exp[-k[g_j]u]\,\Delta g_j\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{不均質大気}
+	相関 $k$ 分布法は $\nu$ 積分を $g$ 積分で置き換える\\
+	吸収係数が一定であると仮定している
+
+	現実大気では、吸収係数は圧力に応じて変化するので、
+	鉛直方向の吸収係数の変化を考えなければならない
+	\[
+		T_{\bar\nu}[u]
+		=\int_{\Delta\nu}\exp\left[-\int_u k_\nu\,du\right]\frac{d\nu}{\Delta\nu}
+		\stackrel{?}{=}\int^1_0\exp\left[-\int_uk[g]\,du\right]dg
+	\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{不均質大気への応用}
+	波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考える
+
+	吸収線の中心では $\nu[k_{\mathrm{max}}]=0$、吸収線の端では
+	$|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下になる
+	\[
+		g[k]=\int^k_0 f[k]\,dk
+		=\frac{2}{\Delta\nu}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
+		=\frac{2}{\Delta\nu}\nu[k]-1
+	\]
+
+	すなわち、単一の吸収線の場合は $\nu$ 積分を $g$ 積分に置き換えることができる
+\end{frame}
+
+\begin{frame}
+	\frametitle{不均質大気への応用}
+	波数区間 $\Delta\nu$ 内で周期的に生起される吸収線を考える
+
+	吸収線の間隔が $\delta$ であるとすると、
+	\[
+		g[k]=\int^k_0 f[k]\,dk
+		=\frac{2}{\delta}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
+		=\frac{2}{\delta}\nu[k]-1
+	\]
+
+	したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる
+\end{frame}
+
 \end{document}
