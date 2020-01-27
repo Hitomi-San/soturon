@@ -78,6 +78,36 @@
 	\tableofcontents
 \end{frame}
 
+\section{動機}
+
+\begin{frame}{動機}
+	\begin{itemize}
+		\item 惑星大気についてシミュレーションしたい
+		\item 大気の温度分布を知りたい
+		\item 放射に関する基本的な事項の知識の確認
+	\end{itemize}
+\end{frame}
+
+\section{放射伝達方程式の基礎}
+
+\begin{frame}{放射伝達方程式}
+	放射伝達強度 $I_\lambda$ が放射の伝搬方向に厚さ $ds$ の媒質を横切った後に、
+	$I_\lambda+dI_\lambda$ になるとすると、
+	\[dI_\lambda=-k_\lambda\rho I\lambda\,ds\qquad\text{$k_\lambda$: 質量消散断面積}\]
+
+	射出と多重散乱による放射強度の増加が以下で与えられるように、
+	放射源係数 $j_\lambda$ を定義する
+	\[dI_\lambda=j_\lambda\rho\,ds\]
+\end{frame}
+
+\begin{frame}{放射伝達方程式}
+	ふたつの式を関連付けて、
+	\[dI_\lambda=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds\]
+
+	放射源関数 $J_\lambda\equiv j_\lambda/k\lambda$ を導入すると、
+	\[\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda\quad\text{……放射伝達方程式}\]
+\end{frame}
+
 \section{線の広がり}
 
 \begin{frame}
@@ -288,6 +318,30 @@
 	\]
 
 	したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる
+\end{frame}
+
+% \begin{frame}
+% 	\frametitle{弱吸収極限}
+% 	吸収係数が小さい場合や、光路長が短い場合（弱吸収極限）
+% 	\[
+% 		T_{\bar\nu}[\text{弱吸収極限}]
+% 		=\int_{\Delta\nu}\left[1-\int_u k_\nu\,du\right]\frac{d\nu}{\Delta\nu}
+% 		=1-\int_u k_*\,du
+% 	\]
+% 
+% 	ここで、$k_*=\sum S_j/\Delta\nu$ で波数に依存せず、小さい値
+% 	\[T_{\bar\nu}[\text{弱吸収極限}]=\exp\left[-\int_u k_*\,du\right]\]
+% \end{frame}
+
+\section{まとめ}
+
+\begin{frame}
+	\frametitle{まとめ}
+	\begin{itemize}
+		\item 大気放射フラックスを計算する方法について学んでいる
+		\item 相関 $k$ 分布法は計算量を少なくすることができる
+		\item 
+	\end{itemize}
 \end{frame}
 
 \end{document}
