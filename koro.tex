@@ -100,19 +100,27 @@
 \section{放射伝達方程式の基礎}
 
 \begin{frame}{放射伝達方程式}
-	放射伝達強度 $I_\lambda^\mathrm{d}$ が、放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を横切った後に、
-	$I_\lambda^\mathrm{d}+dI_\lambda^\mathrm{d}$ になるとする
+	放射伝達強度の変化 $dI_\lambda$ を物質との相互作用による減少
+	$dI_\lambda^\mathrm{d}$ と、射出と多重散乱による増加
+	$dI_\lambda^\mathrm{s}$ に分けて考える
+	\[dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}\]
+
+	$dI_\lambda^\mathrm{d}$ について、
+	放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を横切った後に、
+	放射強度が減少したとする
 	\[dI_\lambda^\mathrm{d}=-k_\lambda\rho i_\lambda\,ds\]
 	$k_\lambda$ は質量消散断面積と呼ばれる
 
-	射出と多重散乱による放射強度の増加が以下で与えられるように、
-	放射源係数 $j_\lambda$ を定義する
+	以下の式によって放射源係数 $j_\lambda$ を定義する
 	\[dI_\lambda^\mathrm{s}=j_\lambda\rho\,ds\]
 \end{frame}
 
 \begin{frame}{放射伝達方程式}
-	ふたつの式を関連付けて、
-	\[dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds\]
+	以上の式より
+	\[
+		dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
+		=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds
+	\]
 
 	放射源関数 $J_\lambda\equiv j_\lambda/k_\lambda$ を導入すると、
 	\[\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda\quad\text{……放射伝達方程式}\]
@@ -136,7 +144,7 @@
 \begin{frame}
 	\frametitle{ローレンツ線形}
 	\begin{description}
-		\item[ローレンツ線形] 衝突によって広げられたスペクトル線の線形
+		\item[ローレンツ線形] 気体分子の衝突によって広げられたスペクトル線の線形
 	\end{description}
 
 	\begin{columns}
@@ -156,22 +164,33 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{半値半幅の温度・圧力依存性}
+	$\alpha$ の温度・圧力依存は、
+	標準気圧 $p_0$ 標準気温 $T_0$ での半値半幅を $\alpha_0$ として以下で与えられる
+	\[\alpha=\alpha_0\frac{p}{p_0}\left(\frac{T_0}{T}\right)^n\]
+
+	$n$ は分子による値で、$1$ 〜 $1/2$
+
+	$\alpha_0$ は地球大気では約 $0.01$ 〜 $0.1 \Unit{cm^{-1}}$
+\end{frame}
+
+\begin{frame}
 	\section{大気の熱赤外放射伝達}
 	放射伝達方程式から、大気の放射フラックス密度を形式的に得る
 \end{frame}
 
-\begin{frame}
-	\frametitle{大気の熱赤外放射伝達}
-	\begin{block}{放射に関してのバランス方程式}
-		ステファン・ボルツマンの法則から
-		\[S\cdot\pi{a_e}^2(1-\bar r)=\sigma{T_e}^4\cdot4\pi{a_e}^2\]
-		アルベド: $\bar r$;\quad 地球半径: $a_e$;\quad\\
-		太陽定数: $S=1366\Unit{W\,m^{-2}}$;\quad 地球大気系の平衡温度: $T_e$
-
-		バランス方程式より、
-		\[T_e=\sqrt[4]{S\frac{1-\bar r}{4\sigma}}\sim255\Unit{K}\]
-	\end{block}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{大気の熱赤外放射伝達}
+% 	\begin{block}{放射に関してのバランス方程式}
+% 		ステファン・ボルツマンの法則から
+% 		\[S\cdot\pi{a_e}^2(1-\bar r)=\sigma{T_e}^4\cdot4\pi{a_e}^2\]
+% 		アルベド: $\bar r$;\quad 地球半径: $a_e$;\quad\\
+% 		太陽定数: $S=1366\Unit{W\,m^{-2}}$;\quad 地球大気系の平衡温度: $T_e$
+% 
+% 		バランス方程式より、
+% 		\[T_e=\sqrt[4]{S\frac{1-\bar r}{4\sigma}}\sim255\Unit{K}\]
+% 	\end{block}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{放射伝達のための一般的な方程式}
@@ -245,14 +264,14 @@
 	光学的深さに沿った波数積分を必ず含む
 \end{frame}
 
-\begin{frame}
-	\frametitle{ラインバイライン積分}
-	ある与えられた波数と分子種には、さまざまな吸収線の吸収係数が透過率へ寄与する
-	\[\tau=\sum_j \tau_j=\int_u\sum_j k_{\nu,j}[u]\,du\]
-
-	したがって、吸収係数は吸収線強度と吸収線形の式で表すことができる
-	\[k_\nu[p,T]=\sum_j S_j[T]f_{\nu,j}[p,T]\]
-\end{frame}
+% \begin{frame}
+% 	\frametitle{ラインバイライン積分}
+% 	ある与えられた波数と分子種には、さまざまな吸収線の吸収係数が透過率へ寄与する
+% 	\[\tau=\sum_j \tau_j=\int_u\sum_j k_{\nu,j}[u]\,du\]
+% 
+% 	したがって、吸収係数は吸収線強度と吸収線形の式で表すことができる
+% 	\[k_\nu[p,T]=\sum_j S_j[T]f_{\nu,j}[p,T]\]
+% \end{frame}
 
 \begin{frame}
 	\frametitle{分光透過率}
@@ -270,14 +289,9 @@
 
 \begin{frame}
 	\section{相関 $k$ 分布法}
-	
-\end{frame}
+	気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱う方法
 
-\begin{frame}
-	\frametitle{相関 $k$ 分布法}
-	気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱う
-
-	均質な大気では分光透過率は吸収係数 $k$ の順序に依存しない\\
+	均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので
 	波数積分は $k$ 空間での積分に置き換えることができる
 \end{frame}
 
