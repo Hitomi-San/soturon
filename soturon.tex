@@ -1,4 +1,4 @@
-\documentclass[article,nontitlepage,]{dennou777}
+\documentclass[article]{dennou777}
 
 \ltjsetparameter{jacharrange={-2}}%ギリシア文字、キリル文字を AL Char に。
 \usepackage[no-math,match,deluxe,fontspec,jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
@@ -120,8 +120,16 @@
 
 \begin{document}
 \maketitle
+\pagebreak
+
+\begin{abstract}
+	惑星大気の熱輸送についてシュミレーションをするために、大気の温度分布を
+	知りたい。そのために必要な知識を整理した。また、シュミレーションのために
+	必要な計算についての理論についても整理した。
+\end{abstract}
 
 \tableofcontents
+\pagebreak
 
 \section{動機}
 
@@ -498,5 +506,7 @@ $|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下に
 	\item 相関 $k$ 分布法で計算をする手順を学んでいるので、
 		実際にそれを用いた計算を行いたい
 \end{itemize}
+
+\section{参考文献}
 
 \end{document}
