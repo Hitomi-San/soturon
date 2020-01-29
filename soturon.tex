@@ -276,6 +276,25 @@ $0$ になる波長を求めれば良い。
 この条件は、中間圏よりも高度が低い局所的に限られた空間で、
 分子の衝突によってエネルギー遷移が起こる範囲内ならば、精度良く成り立つと考えることができる。
 
+\section{スペクトル線の広がり}
+単色の放射は、原子や分子への外部からの影響と、射出の際のエネルギー損失のため、
+エネルギー遷移する間にエネルギー準位が僅かに変化する。
+その結果、非単色の放射となり、有限の幅を持つスペクトル線が観測される
+
+\subsection{ローレンツ線形}
+分子や原子の衝突によって広げられたスペクトル線の線形をローレンツ線形と呼ぶ。
+
+ローレンツ線形は
+\begin{equation}
+	k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]
+\end{equation}
+によって定式化される。ここで、$k_\nu$は吸収係数、$\nu_0$ は理想的な単色の吸収線の波数、
+$\alpha$ は吸収線の半値半幅であり、圧力と温度の関数、$f$: 形状因子 (shape factor);\quad
+$\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
+
+\centeralign{\includegraphics[width=\textwidth]{lorentz.jpg}}
+
+
 \section{放射伝達方程式の導出}
 ある方向に進む放射が、吸収や散乱などの相互作用で、どのように増減するか記述するのが、
 放射伝達方程式である。放射伝達方程式を導き、特定の状況での放射伝達方程式の解を求める。
@@ -357,32 +376,6 @@ $dI_\lambda^\mathrm{s}$ を
 \end{equation}
 で与えられる。
 
-\section{スペクトル線の広がり}
-単色の放射は、相互作用により非単色となり、有限の幅を持つスペクトル線となる
-
-\subsection{スペクトル線の広がり}
-単色の射出は現実には観測されない
-
-原子や分子への外部からの影響と、射出の際のエネルギー損失のため、
-エネルギー遷移する間にエネルギー準位が僅かに変化する
-
-その結果、非単色の放射となり、有限の幅を持つスペクトル線が観測される
-
-\subsection{ローレンツ線形}
-\begin{description}
-	\item[ローレンツ線形] 衝突によって広げられたスペクトル線の線形
-\end{description}
-
-\begin{equation}
-	k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]
-\end{equation}
-\centeralign{\includegraphics[width=\textwidth]{lorentz.jpg}}
-
-$k_\nu$: 吸収係数 ;\quad
-$\nu_0$: 理想的な単色の吸収線の波数;\\
-$\alpha$: 吸収線の半値半幅（圧力と温度の関数）;\\
-$f$: 形状因子 (shape factor);\quad
-$\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
 
 \section{大気の熱赤外放射伝達}
 放射伝達方程式から、大気の放射フラックス密度を形式的に得る
