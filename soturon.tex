@@ -277,75 +277,85 @@ $0$ になる波長を求めれば良い。
 分子の衝突によってエネルギー遷移が起こる範囲内ならば、精度良く成り立つと考えることができる。
 
 \section{放射伝達方程式の導出}
-ある方向に進む放射が、吸収や散乱などの相互作用で、どのように増減するか
-記述するのが、放射伝達方程式である。
+ある方向に進む放射が、吸収や散乱などの相互作用で、どのように増減するか記述するのが、
+放射伝達方程式である。放射伝達方程式を導き、特定の状況での放射伝達方程式の解を求める。
 
-放射伝達方程式を導き、特定の状況での放射伝達方程式の解を求める。
-
-\subsection{放射伝達方程式}
-放射伝達強度の変化 $dI_\lambda$ を物質との相互作用による減少
-$dI_\lambda^\mathrm{d}$ と、射出と多重散乱による増加
-$dI_\lambda^\mathrm{s}$ に分けて考える
+まず、放射伝達強度の変化 $dI_\lambda$ を、物質との相互作用による減少
+$dI_\lambda^\mathrm{d}$ と、射出と多重散乱による増加 $dI_\lambda^\mathrm{s}$ に分けて考える。
 \begin{equation}
 	dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
 \end{equation}
 
-$dI_\lambda^\mathrm{d}$ について、
-放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を横切った後に、
-放射強度が減少したとする
+$dI_\lambda^\mathrm{d}$ について、放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を
+横切った後に、放射強度が減少したとする。このとき、
 \begin{equation}
 	dI_\lambda^\mathrm{d}=-k_\lambda\rho i_\lambda\,ds
 \end{equation}
-$k_\lambda$ は質量消散断面積と呼ばれる
+となる。ここで、係数 $k_\lambda$ は質量消散断面積と呼ばれる。
 
-以下の式によって放射源係数 $j_\lambda$ を定義する
+一方で、以下の式によって放射源係数 $j_\lambda$ を導入して、放射伝達強度の増加
+$dI_\lambda^\mathrm{s}$ を
 \begin{equation}
 	dI_\lambda^\mathrm{s}=j_\lambda\rho\,ds
 \end{equation}
+で表す。
 
 以上の式より
 \begin{equation}
 	dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
 	=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds
 \end{equation}
-
-放射源関数 $J_\lambda\equiv j_\lambda/k_\lambda$ を導入すると、
+を得る。さらに、放射源関数 $J_\lambda\equiv j_\lambda/k_\lambda$ を導入すると、
 \begin{equation}
-	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda\quad\text{……放射伝達方程式}
+	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda
 \end{equation}
+となる。これが\hmemph{放射伝達方程式}である。
 
 \subsection{ビーアー・ブーゲー・ランバートの法則}
-大気系からの射出の寄与を無視できる
+ここからは、放射伝達方程式を応用する例を考える。
+
+大気系からの射出の寄与を無視できる場合を考えよう。この場合は、放射源関数 $J_\lambda$
+が無視できるので、放射伝達方程式は
 \begin{equation}
 	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda
 \end{equation}
-
-積分すると
+となる。$s=0$ における入射強度を $I_\lambda[0]$ とし、距離 $s_1$ 離れた位置における
+射出強度 $I_\lambda[s_1]$ を求めるために、これを積分すると
 \begin{equation}
-	I_\lambda[s_1]=I_\lambda[0]\exp[-k_\lambda u],\qquad u=\int^{s_1}_0\rho\,ds\quad\text{（光路長）}
+	I_\lambda[s_1]=I_\lambda[0]\exp[-\int^{s_1}_0 k_\lambda\rho\,ds]
 \end{equation}
+となる。ここで、媒質が均一であると仮定すると、$k_\lambda$ は $s$ に依存しないので、光路長を
+\begin{equation}
+	u=\int^{s_1}_0\rho\,ds
+\end{equation}
+として定義すると、
+\begin{equation}
+	I_\lambda[s_1]=I_\lambda[0]\exp[-k_\lambda u]
+\end{equation}
+を得る。
 
-一様に消散する媒質を横切る放射強度の低下が、質量消散断面積と
-光路長の積の指数関数に従う
+この結果は、一様に消散する媒質を横切る放射強度の低下が、質量消散断面積と光路長の積の
+指数関数に従うことを示していて、\hmemph{ビーアー・ブーゲー・ランバートの法則}と呼ばれている。
+
 
 \subsection{シュワルツシルトの方程式}
-地球と大気から射出される熱赤外放射伝達\\
-放射源関数はプランク関数で与えられる
-
-放射伝達方程式: シュワルツシルトの式
+地球と大気から射出される熱赤外放射伝達について考える。
+このとき、放射源関数はプランク関数で与えられる。
+この場合の放射伝達方程式は、シュワルツシルトの式と呼ばれる。
 \begin{equation}
 	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+B_\lambda[T]
 \end{equation}
 
-シュワルツシルトの式の解:
+シュワルツシルトの式の解は、$s$ と $s_1$ の間の光学的厚さ
+\begin{equation}
+	\tau_\lambda[s_1,s]=\int^{s_1}_s k_\lambda\rho\,ds
+\end{equation}
+を定義することによって、
 \begin{equation}
 	I_\lambda[s_1]=I_\lambda[0]\exp\bigl[-\tau_\lambda[s_1,0]\bigr]+
 	\int^{s_1}_{0}B_\lambda\bigl[T[s]\bigr]\exp\bigl[-\tau_\lambda[s_1,s]\bigr]k_\lambda\rho\,ds
 \end{equation}
-\begin{equation}
-	\tau_\lambda[s_1,s]=\int^{s_1}_s k_\lambda\rho\,ds\qquad\text{（$s$ と $s_1$ の間の光学的厚さ）}
-\end{equation}
-
+で与えられる。
 
 \section{スペクトル線の広がり}
 単色の放射は、相互作用により非単色となり、有限の幅を持つスペクトル線となる
