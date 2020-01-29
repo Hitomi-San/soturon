@@ -16,10 +16,10 @@
 \hypersetup{linkcolor=,urlcolor=teal}
 
 \usepackage{pxrubrica}
-
 \usepackage{autobreak}
-
 \usepackage{tcolorbox}
+\usepackage{epmaketitle} %https://github.com/matryo-sika/epmaketitle
+\renewcommand{\maketitle}{\epmaketitle}
 
 \setmainfont{Exo 2}
 \setsansfont{Exo 2}
@@ -116,11 +116,16 @@
 \newcommand{\Unit}[1]{\,\mathrm{#1}}
 
 \Dtitle[大気放射の基礎]{大気放射の基礎\\--Liou著 藤枝・深堀訳 (2014) の講読--}
-\Dauthor[人見祥磨]{北海道大学理学部 地球惑星科学科 宇宙惑星グループ\\02160611 人見祥磨}
+\Dauthor{人見祥磨}
+\studentid{02160611}
+\faculty{北海道大学理学部地球惑星科学科\\宇宙惑星グループ}
+\advisor{石渡正樹}
 
 \begin{document}
-\maketitle
-\pagebreak
+
+\begin{titlepage}
+	\maketitle
+\end{titlepage}
 
 \begin{abstract}
 	惑星大気の熱輸送についてシュミレーションをするために、大気の温度分布を
