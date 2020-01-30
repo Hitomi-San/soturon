@@ -138,6 +138,9 @@
 \tableofcontents
 \pagebreak
 
+\listoffigures
+\pagebreak
+
 \section{動機}
 
 ゼミでハドレー循環について勉強するにつれて、惑星大気の熱輸送について興味を持った。
@@ -151,7 +154,12 @@
 放射が進行することで、放射は相互作用により増減する。これを記述する
 \hmemph{放射伝達方程式}を導く。そのために、放射量を表すための物理量を定義する。
 
-\includegraphics[width=\linewidth]{eq.jpg}
+\begin{figure}[t]
+	\includegraphics[width=\linewidth]{eq.jpg}
+	\caption
+		[極座標で示された微小立体角の図]
+		{極座標で示された微小立体角の図。Liou~\cite{liou} による。}
+\end{figure}
 
 \hmemph{単色の放射強度} $I_\lambda$ を導入する。
 面積 $dA$ を横切り、$dA$ の法線からなす角 $\theta$ の方向にある微小立体角 $d\Omega$
@@ -199,9 +207,18 @@
 粒子が少ないとき、個々の粒子が全く同じように散乱する\hmemph{独立散乱}と、
 粒子が多量にあるとき、散乱が繰り返される\hmemph{多重散乱}に分けられる。
 
-\includegraphics[width=\linewidth]{mscatter.jpg}
-
-\centeralign{\includegraphics[width=0.8\textwidth]{scatter.jpg}}
+\begin{figure}[t]
+	\includegraphics[width=\linewidth]{mscatter.jpg}
+	\caption
+		[多重散乱過程を示す図]
+		{$\mathrm{d}$ で示す方向へと散乱する、多重散乱過程。Liou~\cite{liou} より。}
+\end{figure}
+\begin{figure}[t]
+	\includegraphics[width=0.8\textwidth]{scatter.jpg}
+	\caption
+		[サイズパラメーターが散乱へ及ぼす影響]
+		{サイズパラメーター $x$ の、散乱に及ぼす影響を示した図。Liou~\cite{liou}より。}
+\end{figure}
 
 \section{黒体放射の法則}
 
@@ -235,7 +252,15 @@ $h=6.626\times10^{-34}\Unit{J\,s}$、$K_\mathrm{B}=1.3806\times10^{-23}\Unit{J\,
 \end{equation}
 を得る。ここで、$C_1=2\pi hc^2$、$C_2=hc/k_\mathrm{B}$ である。
 
-\includegraphics[width=\textwidth]{planck.jpg}
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{planck.jpg}
+	\caption
+		[プランク関数]
+		{
+			いくつかの射出温度における、波長に対する黒体の放射強度（プランク関数）。
+			Liou~\cite{liou}より。
+		}
+\end{figure}
 
 \subsection{ステファン・ボルツマンの法則}
 黒体の全放射強度を求めるためには、プランク関数を波長全体で積分すればよい。ここで、
@@ -292,7 +317,15 @@ $0$ になる波長を求めれば良い。
 $\alpha$ は吸収線の半値半幅であり、圧力と温度の関数、$f$ は形状因子 (shape factor);\quad
 $\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
 
-\centeralign{\includegraphics[width=\textwidth]{lorentz.jpg}}
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{lorentz.jpg}
+	\caption
+		[ローレンツ線形とドップラー線形]
+		{
+			同じ吸収線強度と吸収線の幅を持った、ローレンツ線形とドップラー線形。
+			Liou~\cite{liou} より。
+		}
+\end{figure}
 
 
 \section{放射伝達方程式の導出}
@@ -331,7 +364,7 @@ $dI_\lambda^\mathrm{s}$ を
 となる。これが\hmemph{放射伝達方程式}である。
 
 \subsection{ビーアー・ブーゲー・ランバートの法則}
-ここからは、放射伝達方程式を応用する例を考える。
+ここからは、具体的な場合の放射伝達方程式の解を考える。
 
 大気系からの射出の寄与を無視できる場合を考えよう。この場合は、放射源関数 $J_\lambda$
 が無視できるので、放射伝達方程式は
