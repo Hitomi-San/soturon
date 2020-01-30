@@ -289,7 +289,7 @@ $0$ になる波長を求めれば良い。
 	k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]
 \end{equation}
 によって定式化される。ここで、$k_\nu$は吸収係数、$\nu_0$ は理想的な単色の吸収線の波数、
-$\alpha$ は吸収線の半値半幅であり、圧力と温度の関数、$f$: 形状因子 (shape factor);\quad
+$\alpha$ は吸収線の半値半幅であり、圧力と温度の関数、$f$ は形状因子 (shape factor);\quad
 $\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
 
 \centeralign{\includegraphics[width=\textwidth]{lorentz.jpg}}
@@ -378,54 +378,50 @@ $dI_\lambda^\mathrm{s}$ を
 
 
 \section{大気の熱赤外放射伝達}
-放射伝達方程式から、大気の放射フラックス密度を形式的に得る
+放射伝達方程式から、大気の放射フラックス密度を形式的に得よう。
+そのために、放射強度は時間に依存しないと仮定し、大気は平衡平面であり、
+放射強度と大気パラメーターは鉛直方向にのみ変化すると仮定する。
 
-
-\subsection{放射伝達のための一般的な方程式}
-放射束の放射強度: $I_\nu$;\quad 吸収係数: $k_\nu$;\\
-吸収気体の密度: $\rho_a$;\quad 光路長: $s$;\quad 放射源関数: $J_\nu$
-\begin{equation}
-	-\frac{1}{k_\nu \rho_a}\frac{dI_\nu}{ds}=I_\nu-J_\nu
-\end{equation}
-
-\begin{description}
-	\item[放射強度] 時間に依存しないと仮定
-	\item[平行平面大気] 放射強度と大気パラメーターは鉛直方向にのみ変化
-\end{description}
-
-$\tau$ 座標に変換する
-放射強度は天頂角と鉛直位置のみの関数\\
-$B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
+放射強度と大気パラメーターは鉛直方向にのみ変化するので、放射強度は天頂角と鉛直位置のみの
+関数である。放射源関数として、プランク放射強度 $B_\nu[z]=B_\nu[T[z]]$ を用いると、
+高度座標の放射伝達方程式は
 \begin{equation}
 	-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]
 \end{equation}
+となる。
 
-光学的深さ $\tau$ を導入（$p=\rho_a/\rho$ は気体の混合比）
+この式には、$dz$、$k_\nu$、$\rho_a$の積が含まれているので、次の式で与えられる光学的深さ
+$\tau$ を導入すると便利である。ここで、$\mathrm{TOA}$ は大気上端であり、
+$p=\rho_a/\rho$ は気体の混合比である。
 \begin{equation}
 	\tau=\int^{\mathrm{TOA}}_{z} k_\nu[z]\rho_a[z]\,dz=\int^p_0 k_\nu[p]q[p]\frac{dp}{g}
 \end{equation}
+この式より、光学的深さの微分は次のようになる。
 \begin{equation}
 	d\tau=-k_\nu[z]\rho_a[z]\,dz=k_\nu[p]q[p]dp/g
 \end{equation}
-
-放射伝達方程式を $\tau$ 座標に変換
+ここで、放射伝達方程式を $\tau$ 座標に変換すると、
 \begin{equation}
 	\mu\frac{dI_\nu[\tau,\mu]}{d\tau}=I_\nu[\tau,\mu]-B_\nu[\tau]
 \end{equation}
+を得る。
 
-\subsection{境界条件}
-境界条件: 地球表面からの射出と大気上端 (TOA) からの射出が等方性となる
+これは 1 階微分方程式であるから、全光学的厚さ $\tau_*$ である大気の、
+上向き成分と下向き成分を解くためには、適切に境界条件を設定しなければならない。
+そこで、地球表面からの射出と大気上端 (TOA) からの射出が等方性となると仮定する。
 
-全光学的厚さ: $\tau_*$
-
-地球表面は赤外で黒体と仮定 $I_\nu[\tau_*,\mu]=B_\nu[\tau_*]$
-
-大気上端では $I_\nu[0,-\mu]=B[\mathrm{TOA}]\simeq0$ と仮定
-
-\subsection{放射強度の型式解}
-単色の透過率 $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義
-
-放射強度の型式解は
+一般に、地球表面は赤外の領域では黒体と仮定できるので、$I_\nu[\tau_*,\mu]=B_\nu[\tau_*]$
+となる。さらに、大気上端では下向きの放射源がなく、 $I_\nu[0,-\mu]=B[\mathrm{TOA}]\simeq0$
+であるとと仮定する。この境界条件に従うと、上向きと下向きの放射強度は、
+\begin{align}
+	I^\uparrow_\nu[\tau,\mu]
+		&=B_\nu[\tau_*]e^{-\tau_*=\tau)/\mu}
+		+\int^{\tau_*}_\tau B_\nu[\tau']e^{-\tau_*=\tau)/\mu}\frac{d\tau'}{d\mu}\\
+	I^\downarrow_\nu[\tau,-\mu]
+		&=\int^{\tau_*}_\tau B_\nu[\tau']e^{-\tau_*=\tau)/\mu}\frac{d\tau'}{d\mu}
+\end{align}
+で与えられる。この解に含まれる、指数関数的な減衰を表すことができるように、単色の透過率
+$T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 \begin{align}
 	I^\uparrow_\nu[\tau,\mu]
 		&=B_\nu[\tau_*]T_\nu\left[\frac{\tau_\nu-\tau}{\mu}\right]
@@ -433,18 +429,17 @@ $B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
 	I^\downarrow_\nu[\tau,-\mu]
 		&=\int^\tau_0 B_\nu[\tau']\frac{d}{d\tau'}T_\nu\left[\frac{\tau-\tau'}{\mu}\right]d\tau'
 \end{align}
+で表すことができる。
 
-大気の加熱率の計算に必要な放射フラックス密度は、上半球と下半球の放射強度の和
+大気の加熱率の計算に必要な放射フラックス密度は、上半球と下半球の放射強度の和であるから、
 \begin{equation}
 	F^{\uparrow\downarrow}_\nu[\tau]=2\pi\int^1_0 I^{\uparrow\downarrow}_\nu[\tau,\pm\mu]\mu\,d\mu
 \end{equation}
-
-\subsection{大気の放射フラックス密度}
-角度方向の積分を考慮するため、拡散透過率 $T^f_\nu$ を導入
+である。角度方向の積分を考慮するため、拡散透過率
 \begin{equation}
 	T^f_\nu[\tau]=2\int^1_0 T_\nu\left[\frac{\tau}{\mu}\right]\mu\,d\mu
 \end{equation}
-
+を導入すると、放射フラックス密度は
 \begin{align}
 	F^\uparrow_\nu[\tau]
 		&=\pi B_\nu[\tau_*]T^f_\nu[\tau_*-\tau]
@@ -452,24 +447,18 @@ $B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
 	F^\downarrow_\nu[\tau]
 		&=\int^\tau_0 \pi B_\nu[\tau']\frac{d}{d\tau'}T^f_\nu[\tau-\tau']d\tau'
 \end{align}
-
-放射フラックスの波数積分は、$\tau$ が波数の関数なので、
+で表される。放射フラックスの波数積分は、$\tau$ が波数の関数なので、
 \begin{equation}
 	F^{\uparrow\downarrow}[z]=\int^\infty_0 F^{\uparrow\downarrow}_\nu[z]\,d\nu
 \end{equation}
-光学的深さに沿った波数積分を必ず含む
-
-したがって、吸収係数は吸収線強度と吸収線形の式で表すことができる
-\begin{equation}
-	k_\nu[p,T]=\sum_j S_j[T]f_{\nu,j}[p,T]
-\end{equation}
+となる。この表式からわかるように、全放射フラックスを得るためには、光学的深さに沿った
+波数積分を必ず行わなければならない。
 
 \subsection{分光透過率}
 赤外放射伝達の計算をする際は、プランク関数の変動が無視しうるような
-小さな波数区間で放射パラメーターを決めることが有効
-
+小さな波数区間で放射パラメーターを決めることが有効である。
 放射強度と放射フラックスの方程式における基本的な放射パラメーターとして、
-平均波数の添字 $\bar\nu$ のついた分光透過率を定義する
+平均波数の添字 $\bar\nu$ のついた分光透過率を定義する。
 \begin{equation}
 	T_{\bar\nu}[u]
 	=\int_{\Delta\nu}\exp[-\tau]\frac{d\nu}{\Delta\nu}
@@ -477,67 +466,64 @@ $B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
 \end{equation}
 
 \section{相関 $k$ 分布法}
-
-気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱う
-
-均質な大気では分光透過率は吸収係数 $k$ の順序に依存しない\\
-波数積分は $k$ 空間での積分に置き換えることができる
+相関 $k$ 分布法は、赤外放射伝達を計算するための手法である。
+均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので、波数積分は $k$ 空間での
+積分に置き換えることができる。相関 $k$ 分布法は、気体の分光透過率を吸収係数 $k_\nu$ に
+応じてグループとして扱い、積分空間を置換する手法である。
 
 波数区間 $\Delta\nu$ における $k_\nu$ に対する正規化確率密度関数が
 $f[k]$ で与えられ、その最大値と最小値がそれぞれ $k_{\mathrm{min}}\to0$、
 $k_{\mathrm{max}}\to\infty$ だとすると、分光透過率は
 \begin{equation}
-	T_{\bar\nu}[u]=\int_{\Delta\nu}\exp[-k_\nu u]\frac{d\nu}{\Delta\nu}=\int^\infty_0 \exp[-ku]f[k]\,dk
+	T_{\bar\nu}[u]=\int_{\Delta\nu}\exp[-k_\nu u]\frac{d\nu}{\Delta\nu}
+	=\int^\infty_0 \exp[-ku]f[k]\,dk
 \end{equation}
-
-確率密度関数 $f$ は分光透過率のラプラス逆変換であるとわかる
+で表すことができる。これより、確率密度関数 $f$ は分光透過率のラプラス逆変換であるとわかる。
 \begin{equation}
 	f[k]=\mathcal{L}^{-1}[T_{\bar\nu}[u]]
 \end{equation}
 
-累積確率分布関数を定義する
+さらに、累積確率分布関数を定義する。
 \begin{equation}
 	g[k]=\int^k_0 f[k]\,dk
 \end{equation}
-
-$g[0]=0,\ g[k\to\infty]=0,\ dg=f\,dk$ より、分光透過率は次で表すことができる
+$g[0]=0$、$g[k\to\infty]=0$、$dg=f\,dk$ であるから、分光透過率は次で表すことができる。
 \begin{equation}
 	T_{\bar\nu}[u]=\int^1_0 \exp[-k[g]u]\,dg\simeq\sum_j\exp[-k[g_j]u]\,\Delta g_j
 \end{equation}
+これにより、分光透過率の計算を、冗長な波数区間における積分から、$g$ 空間における積分に
+置換し、指数項の有限和によって求めることができるようになった。
 
 \subsection{不均質大気への応用}
-相関 $k$ 分布法は $\nu$ 積分を $g$ 積分で置き換える\\
-吸収係数が一定であると仮定している
-
-現実大気では、吸収係数は圧力に応じて変化するので、
-鉛直方向の吸収係数の変化を考えなければならない
+今述べた相関 $k$ 分布法の理論は、$\nu$ 積分を $g$ 積分で置き換えるために、
+吸収係数 $k$ が一定であると仮定していた。現実大気では、吸収係数は圧力に応じて変化するので、
+鉛直方向の吸収係数の変化を考えなければならない。すなわち、吸収係数が一定であると仮定して
+導かれた 2 つの積分が、鉛直方向に吸収係数が変化しても等価であるかを評価しなければならない。
 \begin{equation}
 	T_{\bar\nu}[u]
 	=\int_{\Delta\nu}\exp\left[-\int_u k_\nu\,du\right]\frac{d\nu}{\Delta\nu}
 	\stackrel{?}{=}\int^1_0\exp\left[-\int_uk[g]\,du\right]dg
 \end{equation}
 
-波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考える
-
+最初に、波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考えよう。
 吸収線の中心では $\nu[k_{\mathrm{max}}]=0$、吸収線の端では
-$|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下になる
+$|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下になる。
 \begin{equation}
 	g[k]=\int^k_0 f[k]\,dk
 	=\frac{2}{\Delta\nu}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
 	=\frac{2}{\Delta\nu}\nu[k]-1
 \end{equation}
-
+そして、$(2/\Delta\nu)\,d\nu=dg$となる。
 すなわち、単一の吸収線の場合は $\nu$ 積分を $g$ 積分に置き換えることができる
 
-波数区間 $\Delta\nu$ 内で周期的に生起される吸収線を考える
-
+次に、波数区間 $\Delta\nu$ 内で周期的に生起される吸収線を考える。
 吸収線の間隔が $\delta$ であるとすると、
 \begin{equation}
 	g[k]=\int^k_0 f[k]\,dk
 	=\frac{2}{\delta}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
 	=\frac{2}{\delta}\nu[k]-1
 \end{equation}
-
+そして、$(2/\Delta\nu)\,d\nu=dg$となる。
 したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる
 
 \section{まとめ}
