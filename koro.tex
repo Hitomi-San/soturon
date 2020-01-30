@@ -97,6 +97,7 @@
 	\end{itemize}
 \end{frame}
 
+
 \section{放射伝達方程式の基礎}
 
 \begin{frame}{放射伝達方程式}
@@ -161,7 +162,6 @@
 	$f$: 形状因子 (shape factor);\quad
 	$\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度\\
 	$\alpha=\alpha_0(p/p_0)(T_0/T)^n$: 吸収線の半値半幅
-
 \end{frame}
 
 % \begin{frame}
@@ -292,10 +292,11 @@
 
 \begin{frame}
 	\section{相関 $k$ 分布法}
-	気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱う方法
-
 	均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので
 	波数積分は $k$ 空間での積分に置き換えることができる
+
+	相関 $k$ 分布法は、気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱い
+	積分空間を置換する方法である
 \end{frame}
 
 \begin{frame}
@@ -378,20 +379,25 @@
 
 \begin{frame}
 	\frametitle{まとめと今後の展望}
-	\begin{itemize}
-		\item 大気放射フラックス密度を計算する方法について学んでいる
+	\begin{block}{まとめ}
 		\begin{itemize}
-			\item 大気放射フラックス密度から温度分布を求めることができる
-			\item $F$ を $z$ で偏微分すれば熱が収束する場所がわかる
+			\item 大気放射フラックス密度を計算する方法について学んでいる
+			\begin{itemize}
+				\item 大気放射フラックス密度から温度分布を求めることができる
+				\item $F$ を $z$ で偏微分すれば熱が収束する場所がわかる
+				\item その結果、大気の温度分布がわかる
+			\end{itemize}
+			\item 相関 $k$ 分布法は $\nu$ 積分を $g$ 積分に置換し、
+				計算量を少なくすることができる
 		\end{itemize}
-		\item 相関 $k$ 分布法は $\nu$ 積分を $g$ 積分に置換し、
-			計算量を少なくすることができる
-	\end{itemize}
-	
-	\begin{itemize}
-		\item 相関 $k$ 分布法で計算をする手順を学んでいるので、
-			実際にそれを用いた計算を行いたい
-	\end{itemize}
+	\end{block}
+
+	\begin{block}{今後の展望}
+		\begin{itemize}
+			\item 相関 $k$ 分布法で計算をする手順を学んでいるので、
+				実際にそれを用いた計算を行いたい
+		\end{itemize}
+	\end{block}
 \end{frame}
 
 \end{document}
