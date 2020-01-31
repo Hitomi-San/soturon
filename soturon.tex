@@ -1,4 +1,5 @@
-\documentclass[article]{dennou777}
+\documentclass[article,twoside]{dennou777}
+\pagestyle{Dnofoot}
 
 \ltjsetparameter{jacharrange={-2}}%ギリシア文字、キリル文字を AL Char に。
 \usepackage[no-math,match,deluxe,fontspec,jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
@@ -13,7 +14,8 @@
 \DeclareMathAlphabet{\mathsf}{T1}{uop}{m}{n}
 
 \usepackage[unicode,colorlinks]{hyperref}
-\hypersetup{linkcolor=blue,urlcolor=teal,citecolor=olive}
+% \hypersetup{linkcolor=blue,urlcolor=teal,citecolor=olive}
+\hypersetup{linkcolor=black,urlcolor=black,citecolor=black}
 
 \usepackage{pxrubrica}
 \usepackage{autobreak}
@@ -130,22 +132,23 @@
 	\maketitle
 \end{titlepage}
 
+\cleardoublepage
+
 \rule{0pt}{0pt}\vfill
-\begin{abstract}
-	ハドレー循環について勉強するにつれて、惑星大気の熱輸送について興味を持った。
-	地球でない惑星における大気の熱輸送のふるまいは自転周期や地軸の傾きによって
-	大きく変化すると期待される。
+\section*{要旨}
+ハドレー循環について勉強するにつれて、惑星大気の熱輸送について興味を持った。
+地球でない惑星における大気の熱輸送のふるまいは自転周期や地軸の傾きによって
+大きく変化すると期待される。
 
-	そこで惑星大気の熱輸送についてシュミレーションをするために、大気の温度分布を
-	知る必要がある。そのためには、大気の放射フラックス密度を計算しなければならない。
-	大気の放射フラックス密度を計算するために、まずは放射に関する基本的な物理量を
-	導入する。そして、放射が流れることで、放射の強度が増減することを記述する
-	放射伝達方程式を導く。
+そこで惑星大気の熱輸送についてシュミレーションをするために、大気の温度分布を
+知る必要がある。そのためには、大気の放射フラックス密度を計算しなければならない。
+大気の放射フラックス密度を計算するために、まずは放射に関する基本的な物理量を
+導入する。そして、放射が流れることで、放射の強度が増減することを記述する
+放射伝達方程式を導く。
 
-	実際に大気の温度分布を知るためには、微分方程式で表される放射伝達方程式を解かなければ
-	ならない。そのために、放射伝達方程式を形式的に解き、さらに具体的に数値解を求める
-	手法として、相関 $k$ 分布法について紹介する。
-\end{abstract}
+実際に大気の温度分布を知るためには、微分方程式で表される放射伝達方程式を解かなければ
+ならない。そのために、放射伝達方程式を形式的に解き、さらに具体的に数値解を求める
+手法として、相関 $k$ 分布法について紹介する。
 \vfill\rule{0pt}{0pt}
 
 \pagebreak
@@ -236,8 +239,8 @@
 		\hline\hline
 		$E$&放射エネルギー&$\Unit{ML^2T{-2}}$&$\Unit{J}$\\
 		$f$&放射フラックス&$\Unit{ML^2T{-3}}$&$\Unit{J\,s^{-1}}$, $\Unit{W}$\\
-		$F$&放射フラックス密度&$\Unit{MT{-3}}$&$\Unit{W\,m^{-2}}$\\
-		$I$&放射強度&$\Unit{MT{-3}}$&$\Unit{W\,m^{-2}\,sr^{-2}}$\\
+		$F$&放射フラックス密度&$\Unit{MT^{-3}}$&$\Unit{W\,m^{-2}}$\\
+		$I$&放射強度&$\Unit{MT^{-3}}$&$\Unit{W\,m^{-2}\,sr^{-2}}$\\
 		\hline
 	\end{tabular}
 \end{table}
