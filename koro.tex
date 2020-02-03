@@ -78,13 +78,24 @@
 	\tableofcontents
 \end{frame}
 
-\section{動機}
 
-\begin{frame}{動機}
+\begin{frame}
+	\frametitle{動機}
+	\small
+	\begin{columns}
+		\begin{column}{0.45\textwidth}
+			\begin{itemize}
+				\item 惑星大気の熱輸送について興味があった
+				\item 惑星大気について、自転周期や地軸の傾きによって、
+					どのように熱輸送が変化するかシミュレーションしたい
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\centeralign{\includegraphics[width=\textwidth]{hadley.jpg}}\\
+			\centeralign{\tiny Vallis(2018) より}
+		\end{column}
+	\end{columns}
 	\begin{itemize}
-		\item 惑星大気の熱輸送について興味があった
-		\item 惑星大気について、自転周期や地軸の傾きによって、
-			どのように熱輸送が変化するかシミュレーションしたい
 		\item そのために、大気の温度分布を知りたい
 		\item 放射に関する基本的な事項の知識の確認
 		\item 放射に関して、観測なども含めて、基礎事項を解説している Liou の教科書を
@@ -97,8 +108,15 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}
+	\section{放射伝達方程式の基礎}
+	放射とは電磁波の総称で、大気中のエネルギー輸送を担う重要な過程である。
+	したがって、大気がどのように加熱されるかを知るためには、どのような
+	振る舞いをするかを考えなければならない。
 
-\section{放射伝達方程式の基礎}
+	そのために、放射が伝達する際、どのように増減するかを記述する、
+	放射伝達方程式を導く。
+\end{frame}
 
 \begin{frame}{放射伝達方程式}
 	放射伝達強度の変化 $dI_\lambda$ を物質との相互作用による減少
@@ -129,7 +147,7 @@
 
 \begin{frame}
 	\section{スペクトル線の広がり}
-	単色の放射は、相互作用により非単色となり、有限の幅を持つスペクトル線となる
+	単色の放射は、相互作用により非単色となり、有限の幅を持つスペクトル線となる。
 \end{frame}
 
 \begin{frame}
@@ -149,10 +167,10 @@
 	\end{description}
 
 	\begin{columns}
-		\begin{column}{0.6\textwidth}
+		\begin{column}{0.5\textwidth}
 			\[k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]\]
 		\end{column}
-		\begin{column}{0.3\textwidth}
+		\begin{column}{0.5\textwidth}
 			\centeralign{\includegraphics[width=\textwidth]{lorentz.jpg}}
 		\end{column}
 	\end{columns}
@@ -177,9 +195,9 @@
 
 \begin{frame}
 	\section{大気の熱赤外放射伝達}
-	放射伝達方程式から、大気の放射フラックス密度を形式的に得る
+	放射伝達方程式を解いて、大気の放射フラックス密度を形式的に得る。
 
-	スペクトル線は広がるので、波数空間にわたって積分をしなければならない
+	スペクトル線は広がるので、波数空間にわたって積分をしなければならない。
 \end{frame}
 
 % \begin{frame}
@@ -213,7 +231,7 @@
 	$B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
 	\[-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]\]
 
-	光学的深さ $\tau$ を導入（$p=\rho_a/\rho$ は気体の混合比）
+	光学的深さ $\tau$ を導入（$q=\rho_a/\rho$ は気体の混合比）
 	\[\tau=\int^{\mathrm{TOA}}_{z} k_\nu[z]\rho_a[z]\,dz=\int^p_0 k_\nu[p]q[p]\frac{dp}{g}\]
 	\[d\tau=-k_\nu[z]\rho_a[z]\,dz=k_\nu[p]q[p]dp/g\]
 
@@ -312,11 +330,21 @@
 
 \begin{frame}
 	\frametitle{相関 $k$ 分布法}
-	累積確率分布関数を定義する
-	\[g[k]=\int^k_0 f[k]\,dk\]
+	\begin{columns}
+		\begin{column}{0.55\textwidth}
+			累積確率分布関数を定義する
+			\[g[k]=\int^k_0 f[k]\,dk\]
 
-	$g[0]=0,\ g[k\to\infty]=1,\ dg=f\,dk$ より、分光透過率は次で表すことができる
-	\[T_{\bar\nu}[u]=\int^1_0 \exp[-k[g]u]\,dg\simeq\sum_j\exp[-k[g_j]u]\,\Delta g_j\]
+			$g[0]=0,\ g[k\to\infty]=1,\ dg=f\,dk$ より、分光透過率は次で表すことができる
+			\begin{align*}
+				T_{\bar\nu}[u]&=\int^1_0 \exp[-k[g]u]\,dg\\
+				&\simeq\sum_j\exp[-k[g_j]u]\,\Delta g_j
+			\end{align*}
+		\end{column}
+		\begin{column}{0.45\textwidth}
+			\centeralign{\includegraphics[width=\textwidth]{kbunpu.jpg}}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -375,22 +403,20 @@
 % 	\[T_{\bar\nu}[\text{弱吸収極限}]=\exp\left[-\int_u k_*\,du\right]\]
 % \end{frame}
 
-\section{まとめ}
 
 \begin{frame}
-	\frametitle{まとめと今後の展望}
-	\begin{block}{まとめ}
+	\section{まとめ}
+
+	\begin{itemize}
+		\item 大気放射フラックス密度を計算する方法について学んでいる
 		\begin{itemize}
-			\item 大気放射フラックス密度を計算する方法について学んでいる
-			\begin{itemize}
-				\item 大気放射フラックス密度から温度分布を求めることができる
-				\item $F$ を $z$ で偏微分すれば熱が収束する場所がわかる
-				\item その結果、大気の温度分布がわかる
-			\end{itemize}
-			\item 相関 $k$ 分布法は $\nu$ 積分を $g$ 積分に置換し、
-				計算量を少なくすることができる
+			\item 大気放射フラックス密度から温度分布を求めることができる
+			\item $F$ を $z$ で偏微分すれば熱が収束する場所がわかる
+			\item その結果、大気の温度分布がわかる
 		\end{itemize}
-	\end{block}
+		\item 相関 $k$ 分布法は $\nu$ 積分を $g$ 積分に置換し、
+			計算量を少なくすることができる
+	\end{itemize}
 
 	\begin{block}{今後の展望}
 		\begin{itemize}
