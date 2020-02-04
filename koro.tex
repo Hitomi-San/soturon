@@ -85,14 +85,14 @@
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}
-				\item 惑星大気の熱輸送について興味があった
-				\item 惑星大気について、自転周期や地軸の傾きによって、
-					どのように熱輸送が変化するかシミュレーションしたい
+				\item ゼミでハドレー循環を学んだ
+				\item 赤道域で大気が加熱されることでハドレー循環が起こる
+				\item どのようなハドレー循環が起こるか計算をしたい
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.45\textwidth}
 			\centeralign{\includegraphics[width=\textwidth]{hadley.jpg}}\\
-			\centeralign{\tiny Vallis(2018) より}
+			\centeralign{\tiny Vallis (2018) より}
 		\end{column}
 	\end{columns}
 	\begin{itemize}
@@ -110,76 +110,86 @@
 
 \begin{frame}
 	\section{放射伝達方程式の基礎}
-	放射とは電磁波の総称で、大気中のエネルギー輸送を担う重要な過程である。
-	したがって、大気がどのように加熱されるかを知るためには、どのような
-	振る舞いをするかを考えなければならない。
+	放射とは電磁波のことで、大気中のエネルギー輸送を担う重要な過程である。
+	したがって、大気の温度分布を知るために、大気がどのように加熱されるかを
+	知るためには、放射がどこで吸収され射出されるかを考えなければならない。
 
-	そのために、放射が伝達する際、どのように増減するかを記述する、
+	そのために、放射が伝達する際、どのように増減するかを記述する
 	放射伝達方程式を導く。
 \end{frame}
 
 \begin{frame}{放射伝達方程式}
+	単色の放射強度 $I_\lambda$ を面積 $dA$ を横切り、$dA$ の法線からなす角 $\theta$ の
+	方向にある微小立体角 $d\Omega$ から入射する、ある波長区間 $\lambda$ 〜 $\lambda+d\lambda$
+	における、微小時間 $dt$ の間の微小放射エネルギー量 $dE_\lambda$ で定義する。
+	\[I_\lambda=\frac{dE_\lambda}{\cos[\theta]\,dA\,d\Omega\,d\lambda\,dt}\]
+
 	放射伝達強度の変化 $dI_\lambda$ を物質との相互作用による減少
 	$dI_\lambda^\mathrm{d}$ と、射出と多重散乱による増加
 	$dI_\lambda^\mathrm{s}$ に分けて考える
 	\[dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}\]
-
-	$dI_\lambda^\mathrm{d}$ について、
-	放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を横切った後に、
-	放射強度が減少したとする
-	\[dI_\lambda^\mathrm{d}=-k_\lambda\rho i_\lambda\,ds\]
-	$k_\lambda$ は質量消散断面積と呼ばれる
-
-	以下の式によって放射源係数 $j_\lambda$ を定義する
-	\[dI_\lambda^\mathrm{s}=j_\lambda\rho\,ds\]
 \end{frame}
 
 \begin{frame}{放射伝達方程式}
-	以上の式より
-	\[
+	\begin{itemize}
+		\item $dI_\lambda^\mathrm{d}$ について、
+			放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を横切った後に、
+			放射強度が減少したとする
+			\[dI_\lambda^\mathrm{d}=-k_\lambda\rho I_\lambda\,ds\]
+			$k_\lambda$ は吸収係数と呼ばれる
+		\item $dI_\lambda^\mathrm{s}$について、放射源係数 $j_\lambda$ を導入して
+			次の式で表されるとする。
+			\[dI_\lambda^\mathrm{s}=j_\lambda\rho\,ds\]
+	\end{itemize}
+
+	以上の式より、
+	$
 		dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
 		=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds
-	\]
+	$
 
+	式のかたちを揃えるために
 	放射源関数 $J_\lambda\equiv j_\lambda/k_\lambda$ を導入すると、
 	\[\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda\quad\text{……放射伝達方程式}\]
 \end{frame}
 
 \begin{frame}
 	\section{スペクトル線の広がり}
-	単色の放射は、相互作用により非単色となり、有限の幅を持つスペクトル線となる。
-\end{frame}
+	$k_\lambda$ は媒質がどれだけのエネルギーを吸収するかを表すパラメーターである。
 
-\begin{frame}
-	\frametitle{スペクトル線の広がり}
-	単色の射出は現実には観測されない
+	単色の放射は現実には観測されない。単色の放射は原子や分子への外部からの影響と、
+	射出の際のエネルギー損失といった相互作用のため、エネルギー遷移する間に
+	エネルギー準位が僅かに変化し、非単色となり、有限の幅を持つスペクトル線となる。
 
-	原子や分子への外部からの影響と、射出の際のエネルギー損失のため、
-	エネルギー遷移する間にエネルギー準位が僅かに変化する
-
-	その結果、非単色の放射となり、有限の幅を持つスペクトル線が観測される
+	スペクトル線の広がりと、$k_\lambda$ の関係について記述する。
 \end{frame}
 
 \begin{frame}
 	\frametitle{ローレンツ線形}
 	\begin{description}
-		\item[ローレンツ線形] 気体分子の衝突によって広げられたスペクトル線の線形
+		\item[ローレンツ線形] 気体分子の衝突によって広げられた線形
+		\item[ドップラー線形] ドップラー効果によって広げられた線形
 	\end{description}
 
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
+			ローレンツ線形を表す式
 			\[k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]\]
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\centeralign{\includegraphics[width=\textwidth]{lorentz.jpg}}
+			\centeralign{\tiny Liou (2014) より}
 		\end{column}
 	\end{columns}
 
-	$k_\nu$: 吸収係数 ;\quad
-	$\nu_0$: 理想的な単色の吸収線の波数;\\
-	$f$: 形状因子 (shape factor);\quad
-	$\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度\\
-	$\alpha=\alpha_0(p/p_0)(T_0/T)^n$: 吸収線の半値半幅
+	{\small
+		$k_\nu$: 吸収係数 ;\quad
+		$\nu_0$: 理想的な単色の吸収線の波数;\\
+		$f$: 形状因子 (shape factor);\quad
+		$\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度\\
+		$\alpha=\alpha_0(p/p_0)(T_0/T)^n$: 吸収線の半値半幅
+	}
+
 \end{frame}
 
 % \begin{frame}
@@ -195,9 +205,19 @@
 
 \begin{frame}
 	\section{大気の熱赤外放射伝達}
-	放射伝達方程式を解いて、大気の放射フラックス密度を形式的に得る。
+	放射伝達方程式
+	\[-\frac{1}{k_\nu \rho_a}\frac{dI_\nu}{ds}=I_\nu-J_\nu\]
+	を解いて、大気の放射フラックス密度を形式的に得る。
+	ここでは、平行平面大気を仮定し、大気のパラメーターと放射強度は
+	鉛直方向にしか変化しないと仮定する。
 
-	スペクトル線は広がるので、波数空間にわたって積分をしなければならない。
+	スペクトル線は広がるので、大気の放射フラックス密度を得るためには、
+	波数空間にわたって積分をしなければならない。
+
+	{\tiny
+		放射束の放射強度: $I_\nu$;\quad 吸収係数: $k_\nu$;
+		吸収気体の密度: $\rho_a$;\quad 光路長: $s$;\quad 放射源関数: $J_\nu$
+	}
 \end{frame}
 
 % \begin{frame}
@@ -214,21 +234,9 @@
 % \end{frame}
 
 \begin{frame}
-	\frametitle{放射伝達のための一般的な方程式}
-	放射束の放射強度: $I_\nu$;\quad 吸収係数: $k_\nu$;\\
-	吸収気体の密度: $\rho_a$;\quad 光路長: $s$;\quad 放射源関数: $J_\nu$
-	\[-\frac{1}{k_\nu \rho_a}\frac{dI_\nu}{ds}=I_\nu-J_\nu\]
-
-	\begin{description}
-		\item[放射強度] 時間に依存しないと仮定
-		\item[平行平面大気] 放射強度と大気パラメーターは鉛直方向にのみ変化
-	\end{description}
-\end{frame}
-
-\begin{frame}
 	\frametitle{$\tau$ 座標に変換}
 	放射強度は天頂角と鉛直位置のみの関数\\
-	$B_\nu[z]=B_\nu[T[z]]$ はプランク放射強度
+	プランク放射強度 $B_\nu[z]=B_\nu[T[z]]$ を放射源関数とする
 	\[-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]\]
 
 	光学的深さ $\tau$ を導入（$q=\rho_a/\rho$ は気体の混合比）
@@ -343,6 +351,7 @@
 		\end{column}
 		\begin{column}{0.45\textwidth}
 			\centeralign{\includegraphics[width=\textwidth]{kbunpu.jpg}}
+			\centeralign{\tiny Liou (2014) より}
 		\end{column}
 	\end{columns}
 \end{frame}
