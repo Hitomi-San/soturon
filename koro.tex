@@ -74,18 +74,13 @@
 \maketitle
 \mleftright
 
-\begin{frame}{目次}
-	\tableofcontents
-\end{frame}
-
-
 \begin{frame}
 	\frametitle{動機}
 	\small
 	\begin{columns}
 		\begin{column}{0.45\textwidth}
 			\begin{itemize}
-				\item ゼミでハドレー循環を学んだ
+				\item 研究室の読書会でハドレー循環を学んだ
 				\item 赤道域で大気が加熱されることでハドレー循環が起こる
 				\item どのようなハドレー循環が起こるか計算をしたい
 			\end{itemize}
@@ -109,52 +104,57 @@
 \end{frame}
 
 \begin{frame}
-	\section{放射伝達方程式の基礎}
+	\frametitle{放射とは}
 	放射とは電磁波のことで、大気中のエネルギー輸送を担う重要な過程である。
 	したがって、大気の温度分布を知るために、大気がどのように加熱されるかを
 	知るためには、放射がどこで吸収され射出されるかを考えなければならない。
 
-	そのために、放射が伝達する際、どのように増減するかを記述する
-	放射伝達方程式を導く。
+	\hfill
+
+	\begin{columns}
+		\begin{column}{0.6\textwidth}
+			単色の放射強度 $I_\lambda$ を面積 $dA$ を横切り、$dA$ の法線からなす角 $\theta$ の
+			方向にある微小立体角 $d\Omega$ から入射する、ある波長区間 $\lambda$ 〜 $\lambda+d\lambda$
+			における、微小時間 $dt$ の間の微小放射エネルギー量 $dE_\lambda$ で定義する。
+			\[I_\lambda=\frac{dE_\lambda}{\cos[\theta]\,dA\,d\Omega\,d\lambda\,dt}\]
+		\end{column}
+		\begin{column}{0.4\textwidth}
+			\centeralign{\includegraphics[width=\textwidth]{eq.jpg}}
+			\centeralign{\tiny Liou (2014) より}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{放射伝達方程式}
-	単色の放射強度 $I_\lambda$ を面積 $dA$ を横切り、$dA$ の法線からなす角 $\theta$ の
-	方向にある微小立体角 $d\Omega$ から入射する、ある波長区間 $\lambda$ 〜 $\lambda+d\lambda$
-	における、微小時間 $dt$ の間の微小放射エネルギー量 $dE_\lambda$ で定義する。
-	\[I_\lambda=\frac{dE_\lambda}{\cos[\theta]\,dA\,d\Omega\,d\lambda\,dt}\]
-
-	放射伝達強度の変化 $dI_\lambda$ を物質との相互作用による減少
-	$dI_\lambda^\mathrm{d}$ と、射出と多重散乱による増加
-	$dI_\lambda^\mathrm{s}$ に分けて考える
+	放射伝達強度の変化 $dI_\lambda$ を、媒質との相互作用による減少
+	$dI_\lambda^\mathrm{d}$ と射出と多重散乱による増加 $dI_\lambda^\mathrm{s}$
+	のふたつに分けて考える。
 	\[dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}\]
-\end{frame}
 
-\begin{frame}{放射伝達方程式}
 	\begin{itemize}
-		\item $dI_\lambda^\mathrm{d}$ について、
+		\item 媒質との相互作用による減少 $dI_\lambda^\mathrm{d}$ について、
 			放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を横切った後に、
-			放射強度が減少したとする
+			放射強度が減少したとする。$k_\lambda$ は吸収係数と呼ばれる。
 			\[dI_\lambda^\mathrm{d}=-k_\lambda\rho I_\lambda\,ds\]
-			$k_\lambda$ は吸収係数と呼ばれる
-		\item $dI_\lambda^\mathrm{s}$について、放射源係数 $j_\lambda$ を導入して
-			次の式で表されるとする。
+		\item 射出と多重産卵による増加$dI_\lambda^\mathrm{s}$ について、
+			放射源係数 $j_\lambda$ を導入して次の式で表されるとする。
 			\[dI_\lambda^\mathrm{s}=j_\lambda\rho\,ds\]
 	\end{itemize}
+\end{frame}
 
+\begin{frame}{放射伝達方程式}
 	以上の式より、
-	$
+	\[
 		dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
 		=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds
-	$
+	\]
 
-	式のかたちを揃えるために
 	放射源関数 $J_\lambda\equiv j_\lambda/k_\lambda$ を導入すると、
 	\[\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda\quad\text{……放射伝達方程式}\]
 \end{frame}
 
 \begin{frame}
-	\section{スペクトル線の広がり}
+	\frametitle{スペクトル線の広がり}
 	$k_\lambda$ は媒質がどれだけのエネルギーを吸収するかを表すパラメーターである。
 
 	単色の放射は現実には観測されない。単色の放射は原子や分子への外部からの影響と、
@@ -170,6 +170,8 @@
 		\item[ローレンツ線形] 気体分子の衝突によって広げられた線形
 		\item[ドップラー線形] ドップラー効果によって広げられた線形
 	\end{description}
+
+	\hfill
 
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
@@ -204,7 +206,7 @@
 % \end{frame}
 
 \begin{frame}
-	\section{大気の熱赤外放射伝達}
+	\frametitle{大気の熱赤外放射伝達}
 	放射伝達方程式
 	\[-\frac{1}{k_\nu \rho_a}\frac{dI_\nu}{ds}=I_\nu-J_\nu\]
 	を解いて、大気の放射フラックス密度を形式的に得る。
@@ -213,11 +215,6 @@
 
 	スペクトル線は広がるので、大気の放射フラックス密度を得るためには、
 	波数空間にわたって積分をしなければならない。
-
-	{\tiny
-		放射束の放射強度: $I_\nu$;\quad 吸収係数: $k_\nu$;
-		吸収気体の密度: $\rho_a$;\quad 光路長: $s$;\quad 放射源関数: $J_\nu$
-	}
 \end{frame}
 
 % \begin{frame}
@@ -235,15 +232,15 @@
 
 \begin{frame}
 	\frametitle{$\tau$ 座標に変換}
-	放射強度は天頂角と鉛直位置のみの関数\\
-	プランク放射強度 $B_\nu[z]=B_\nu[T[z]]$ を放射源関数とする
+	放射強度は天頂角と鉛直位置のみの関数となる。
+	プランク放射強度 $B_\nu[z]=B_\nu[T[z]]$ を放射源関数とする。
 	\[-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]\]
 
-	光学的深さ $\tau$ を導入（$q=\rho_a/\rho$ は気体の混合比）
+	光学的深さ $\tau$ を導入する。（$q=\rho_a/\rho$ は気体の混合比）
 	\[\tau=\int^{\mathrm{TOA}}_{z} k_\nu[z]\rho_a[z]\,dz=\int^p_0 k_\nu[p]q[p]\frac{dp}{g}\]
 	\[d\tau=-k_\nu[z]\rho_a[z]\,dz=k_\nu[p]q[p]dp/g\]
 
-	放射伝達方程式を $\tau$ 座標に変換
+	放射伝達方程式を $\tau$ 座標に変換する。
 	\[\mu\frac{dI_\nu[\tau,\mu]}{d\tau}=I_\nu[\tau,\mu]-B_\nu[\tau]\]
 \end{frame}
 
@@ -260,7 +257,7 @@
 
 \begin{frame}
 	\frametitle{放射強度の形式解}
-	単色の透過率 $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義
+	単色の透過率 $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義する。
 
 	放射強度の形式解は
 	\begin{align*}
@@ -272,12 +269,13 @@
 	\end{align*}
 
 	大気の加熱率の計算に必要な放射フラックス密度は、上半球と下半球の放射強度の和
+	である。
 	\[F^{\uparrow\downarrow}_\nu[\tau]=2\pi\int^1_0 I^{\uparrow\downarrow}_\nu[\tau,\pm\mu]\mu\,d\mu\]
 \end{frame}
 
 \begin{frame}
 	\frametitle{大気の放射フラックス密度}
-	角度方向の積分を考慮するため、拡散透過率 $T^f_\nu$ を導入
+	単色の透過率 $T_\nu$ を角度方向に積分した、拡散透過率 $T^f_\nu$ を導入する。
 	\[T^f_\nu[\tau]=2\int^1_0 T_\nu\left[\frac{\tau}{\mu}\right]\mu\,d\mu\]
 
 	\begin{align*}
@@ -288,9 +286,9 @@
 			&=\int^\tau_0 \pi B_\nu[\tau']\frac{d}{d\tau'}T^f_\nu[\tau-\tau']d\tau'
 	\end{align*}
 
-	放射フラックスの波数積分は、$\tau$ が波数の関数なので、
+	全放射フラックス密度は、放射フラックス密度の波数積分で、
 	\[F^{\uparrow\downarrow}[z]=\int^\infty_0 F^{\uparrow\downarrow}_\nu[z]\,d\nu\]
-	光学的深さに沿った波数積分を必ず含む
+	光学的深さに沿った波数積分を必ず含むこととなる。
 \end{frame}
 
 % \begin{frame}
@@ -305,10 +303,10 @@
 \begin{frame}
 	\frametitle{分光透過率}
 	赤外放射伝達の計算をする際は、プランク関数の変動が無視しうるような
-	小さな波数区間で放射パラメーターを決めることが有効
+	小さな波数区間に分割することが有効である。
 
-	放射強度と放射フラックスの方程式における基本的な放射パラメーターとして、
-	平均波数の添字 $\bar\nu$ のついた分光透過率を定義する
+	放射強度と放射フラックスの方程式における基本的な値として、
+	平均波数の添字 $\bar\nu$ のついた分光透過率を定義する。
 	\[
 		T_{\bar\nu}[u]
 		=\int_{\Delta\nu}\exp[-\tau]\frac{d\nu}{\Delta\nu}
@@ -317,22 +315,32 @@
 \end{frame}
 
 \begin{frame}
-	\section{相関 $k$ 分布法}
-	均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので
-	波数積分は $k$ 空間での積分に置き換えることができる
+	\frametitle{相関 $k$ 分布法}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので
+			波数積分は $k$ 空間での積分に置き換えることができる。
 
-	相関 $k$ 分布法は、気体の分光透過率を吸収係数 $k_\nu$ に応じてグループとして扱い
-	積分空間を置換する方法である
+			\hfill
+
+			相関 $k$ 分布法は、気体の分光透過率を吸収係数 $k_\nu$ に応じて
+			グループとして扱い、累積確率密度関数へと積分空間を置換する方法である。
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centeralign{\includegraphics[width=\textwidth]{f.jpg}}
+			\centeralign{\tiny Liou (2014) より}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}
 	\frametitle{相関 $k$ 分布法}
 	波数区間 $\Delta\nu$ における $k_\nu$ に対する正規化確率密度関数が
-	$f[k]$ で与えられ、その最大値と最小値がそれぞれ $k_{\mathrm{min}}\to0$、
+	$f[k_\nu]$ で与えられ、$f$ の最大値と最小値がそれぞれ $k_{\mathrm{min}}\to0$、
 	$k_{\mathrm{max}}\to\infty$ だとすると、分光透過率は
 	\[T_{\bar\nu}[u]=\int_{\Delta\nu}\exp[-k_\nu u]\frac{d\nu}{\Delta\nu}=\int^\infty_0 \exp[-ku]f[k]\,dk\]
 
-	確率密度関数 $f$ は分光透過率のラプラス逆変換であるとわかる
+	確率密度関数 $f$ は分光透過率のラプラス逆変換であるとわかる。
 	\[f[k]=\mathcal{L}^{-1}[T_{\bar\nu}[u]]\]
 \end{frame}
 
@@ -357,8 +365,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{不均質大気}
-	相関 $k$ 分布法は $\nu$ 積分を $g$ 積分で置き換える\\
+	\frametitle{不均質大気への応用}
+	相関 $k$ 分布法は $\nu$ 積分を $g$ 積分で置き換える手法であるが、
 	吸収係数が一定であると仮定している
 
 	現実大気では、吸収係数は圧力に応じて変化するので、
@@ -372,22 +380,22 @@
 
 \begin{frame}
 	\frametitle{不均質大気への応用}
-	波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考える
+	波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考える。
 
 	吸収線の中心では $\nu[k_{\mathrm{max}}]=0$、吸収線の端では
-	$|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下になる
+	$|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下になる。
 	\[
 		g[k]=\int^k_0 f[k]\,dk
 		=\frac{2}{\Delta\nu}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
 		=\frac{2}{\Delta\nu}\nu[k]-1
 	\]
 
-	すなわち、単一の吸収線の場合は $\nu$ 積分を $g$ 積分に置き換えることができる
+	すなわち、単一の吸収線の場合は $\nu$ 積分を $g$ 積分に置き換えることができる。
 \end{frame}
 
 \begin{frame}
 	\frametitle{不均質大気への応用}
-	波数区間 $\Delta\nu$ 内で周期的に生起される吸収線を考える
+	波数区間 $\Delta\nu$ 内で周期的に生起される吸収線を考える。
 
 	吸収線の間隔が $\delta$ であるとすると、
 	\[
@@ -396,7 +404,7 @@
 		=\frac{2}{\delta}\nu[k]-1
 	\]
 
-	したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる
+	したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる。
 \end{frame}
 
 % \begin{frame}
@@ -412,10 +420,24 @@
 % 	\[T_{\bar\nu}[\text{弱吸収極限}]=\exp\left[-\int_u k_*\,du\right]\]
 % \end{frame}
 
+\begin{frame}
+	\frametitle{放射フラックス密度から温度分布を求める}
+	ここまでの議論で、大気放射フラックス密度を求めた。大気放射フラックス密度
+	から大気の温度分布を求める。
+
+	大気が動かないと仮定すると、大気の局所的な気温の温度変化率は
+	次の式で与えられる。
+
+	\[
+		\rho C_p\left(\frac{\partial T}{\partial t}\right)_\text{放射}
+		=-\frac{\partial}{\partial z}(F_\text{太陽放射}-F_\text{熱赤外放射})
+	\]
+
+	ここで、$C_p$ は定圧比熱、$F$ は正味の放射フラックス密度である。
+\end{frame}
 
 \begin{frame}
-	\section{まとめ}
-
+	\frametitle{まとめ}
 	\begin{itemize}
 		\item 大気放射フラックス密度を計算する方法について学んでいる
 		\begin{itemize}
