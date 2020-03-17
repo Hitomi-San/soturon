@@ -19,7 +19,8 @@
 
 \usepackage{pxrubrica}
 \usepackage{autobreak}
-\usepackage{tcolorbox}
+\usepackage{tikz,tcolorbox}
+\usetikzlibrary{calc}
 \usepackage{epmaketitle} %https://github.com/matryo-sika/epmaketitle
 \renewcommand{\maketitle}{\epmaketitle}
 
@@ -42,7 +43,7 @@
 	BoldFeatures={
 		Font=FOT-MatissePro-EB,
 		AltFont={
-			 {
+			{
 				Range={
 					"4E00-"9FFF, % CJK 統合漢字
 					"3400-"4DFF, % CJK 統合漢字拡張 A
@@ -75,7 +76,7 @@
 	BoldFeatures={
 		Font=FOT-MatissePro-EB,
 		AltFont={
-			 {
+			{
 				Range={
 					"4E00-"9FFF, % CJK 統合漢字
 					"3400-"4DFF, % CJK 統合漢字拡張 A
@@ -105,17 +106,18 @@
 %%%%%%%%%%%%自作マクロ
 
 %%matrix
-\newcommand{\Mtx}[1]{\begin{matrix} #1 \end{matrix}}
-\newcommand{\pMtx}[1]{\begin{pmatrix} #1 \end{pmatrix}}
-\newcommand{\bMtx}[1]{\begin{bmatrix} #1 \end{bmatrix}}
-\newcommand{\BMtx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}}
-\newcommand{\vMtx}[1]{\begin{vmatrix} #1 \end{vmatrix}}
-\newcommand{\VMtx}[1]{\begin{Vmatrix} #1 \end{Vmatrix}}
+\newcommand{\hmmtx}[1]{\begin{matrix} #1 \end{matrix}}
+\newcommand{\hmpmtx}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\hmbmtx}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\hmBmtx}[1]{\begin{Bmatrix} #1 \end{Bmatrix}}
+\newcommand{\hmvmtx}[1]{\begin{vmatrix} #1 \end{vmatrix}}
+\newcommand{\hmVmtx}[1]{\begin{Vmatrix} #1 \end{Vmatrix}}
 
 \newcommand{\hmvec}{\mathbold}
-\newcommand{\eqdef}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\hmeqdef}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\hmeqq}{\stackrel{\mathrm{?}}{=}}
 \newcommand{\centeralign}[1]{\rule{0pt}{0pt}\hfill#1\hfill\rule{0pt}{0pt}}
-\newcommand{\Unit}[1]{\,\mathrm{#1}}
+\newcommand{\hmunit}[1]{\,\mathrm{#1}}
 \newcommand{\hmemph}[1]{\textbf{#1}}
 
 \renewcommand{\thefootnote}{*\arabic{footnote}}
@@ -171,9 +173,9 @@
 
 \section{放射とは}
 
-\hmemph{放射}とは電磁波の総称であり、輻射とも呼ばれる\cite{asano}。放射は、大気中の
+\hmemph{放射}とは電磁波のことであり、輻射とも呼ばれる\cite{asano}。放射は、大気中の
 エネルギー輸送を担う重要な過程であり、波動の形で伝搬する。そして、全ての放射は同じ速さ、
-すなわち光速$c=2.9979\times10^8\Unit{m/s}$ で伝播する。
+すなわち光速$c=2.9979\times10^8\hmunit{m/s}$ で伝播する。
 
 電磁波では、周波数 $\tilde\nu$ と波長 $\lambda$ が以下の式で関連付けられる。
 \begin{equation}
@@ -184,13 +186,17 @@
 	\nu=\frac{\tilde\nu}{c}=\frac{1}{\lambda}
 \end{equation}
 
+放射は大気中のエネルギー輸送を担う重要な過程であるから、
+大気の温度分布を知るために、大気がどのように加熱されるかを知るためには、放射がどこで
+吸収され射出されるかを考えなければならない。
+
 \section{基本的な放射量}
 
 放射が流れることで、放射は相互作用により増減する。これを記述する
 \hmemph{放射伝達方程式}を導く。そのために、放射量を表すための物理量を定義する。
 
 \begin{figure}[t]
-	\includegraphics[width=\linewidth]{eq.jpg}
+	\includegraphics[width=\linewidth]{eq2.jpg}
 	\caption
 		[極座標で示された微小立体角の図]
 		{極座標で示された微小立体角の図。Liou~\cite{liou} による。}
@@ -237,10 +243,10 @@
 		\hline
 		記号&放射量&次元&単位\\
 		\hline\hline
-		$E$&放射エネルギー&$\Unit{ML^2T{-2}}$&$\Unit{J}$\\
-		$f$&放射フラックス&$\Unit{ML^2T{-3}}$&$\Unit{J\,s^{-1}}$, $\Unit{W}$\\
-		$F$&放射フラックス密度&$\Unit{MT^{-3}}$&$\Unit{W\,m^{-2}}$\\
-		$I$&放射強度&$\Unit{MT^{-3}}$&$\Unit{W\,m^{-2}\,sr^{-2}}$\\
+		$E$&放射エネルギー&$\hmunit{ML^2T^{-2}}$&$\hmunit{J}$\\
+		$f$&放射フラックス&$\hmunit{ML^2T^{-3}}$&$\hmunit{J\,s^{-1}}$, $\hmunit{W}$\\
+		$F$&放射フラックス密度&$\hmunit{MT^{-3}}$&$\hmunit{W\,m^{-2}}$\\
+		$I$&放射強度&$\hmunit{MT^{-3}}$&$\hmunit{W\,m^{-2}\,sr^{-2}}$\\
 		\hline
 	\end{tabular}
 \end{table}
@@ -296,10 +302,10 @@ $\tilde\nu$ は振動子の周波数である。
 \end{equation}
 ここで、$h$ はプランク定数、 $k_\mathrm{B}$ はボルツマン定数、$c$ は光速、$T$ は絶対温度
 である。プランク定数とボルツマン定数は実験によって決定され、
-$h=6.626\times10^{-34}\Unit{J\,s}$、$K_\mathrm{B}=1.3806\times10^{-23}\Unit{J\,K^{-1}}$
+$h=6.626\times10^{-34}\hmunit{J\,s}$、$K_\mathrm{B}=1.3806\times10^{-23}\hmunit{J\,K^{-1}}$
 である。さらに、波長 $\lambda=c/\tilde\nu$ に関する式に書き直すと、
 \begin{equation}
-	B_\lambda[T]=\frac{2hc^2}{\lambda^5(\exp[hc/k_\mathrm{B}\lambda T]-1}=
+	B_\lambda[T]=\frac{2hc^2}{\lambda^5(\exp[hc/k_\mathrm{B}\lambda T]-1)}=
 	\frac{C_1\lambda^{-5}}{\pi(\exp[C_2/\lambda T]-1)}
 \end{equation}
 を得る。ここで、$C_1=2\pi hc^2$、$C_2=hc/k_\mathrm{B}$ である。
@@ -324,7 +330,7 @@ $b=2\pi^4k_\mathrm{B}^4/(15c^2h^3)$ を導入すると、
 \begin{equation}
 	F=\pi B[T]=\sigma T^4
 \end{equation}
-となる。ここで、$\sigma=5.67\times10^{-8}\Unit{J\,m^{-2}\,s^{-1}\,k_\mathrm{B}^{-4}}$は
+となる。ここで、$\sigma=5.67\times10^{-8}\hmunit{J\,m^{-2}\,s^{-1}\,k_\mathrm{B}^{-4}}$は
 ステファン・ボルツマン定数と呼ばれる。
 
 この式は、黒体によって放出される放射フラックス密度が、絶対温度の $4$ 乗に比例することを
@@ -343,7 +349,7 @@ $0$ になる波長を求めれば良い。
 \begin{equation}
 	\lambda_m=\frac{a}{T}
 \end{equation}
-を得る。ここで、$a=2.897\times10^{-3}\Unit{m\,K}$ はウィーンの変位定数と呼ばれている。
+を得る。ここで、$a=2.897\times10^{-3}\hmunit{m\,K}$ はウィーンの変位定数と呼ばれている。
 
 \subsection{キルヒホッフの法則}
 \hmemph{キルヒホッフの法則}は、射出と吸収が等しくなるという法則である。
@@ -557,7 +563,36 @@ $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 応じてグループとして扱い、積分空間を置換する手法である。
 
 \begin{figure}[t]
-	\includegraphics[width=\textwidth]{kbunpu.jpg}
+	\centering
+	\begin{tikzpicture}[x=.02\textwidth,y=.04\textwidth]
+		\draw[thick](1,0.5)rectangle(35,9.5);
+		\foreach\y in{1,...,9}\draw($(1,\y)+(0,0.5)$)--($(35,\y)+(0,0.5)$);
+		\foreach\y in{1,...,9}\draw(1,\y)node[left]{$\y\Delta k$};
+		\draw plot[mark=*]coordinates{
+			(1,1)(2,2)(3,3)(4,4)(5,5)(6,6)(7,7)(8,6)(9,5)(10,4)(11,3)(12,2)(13,1)
+			(14,2)(15,3)(16,4)(17,3)(18,2)(19,1)(20,2)(21,3)(22,4)(23,5)(24,6)
+			(25,7)(26,8)(27,9)(28,8)(29,7)(30,6)(31,5)(32,4)(33,3)(34,2)(35,1)
+		};
+		\draw(18,0)node[below]{$\nu$};
+	\end{tikzpicture}
+	\begin{tikzpicture}[x=.02\textwidth,y=.04\textwidth]
+		\draw[thick](1,0.5)rectangle(35,9.5);
+		\foreach\y in{1,...,9}\draw($(1,\y)+(0,0.5)$)--($(35,\y)+(0,0.5)$);
+		\foreach\y in{1,...,9}\draw(1,\y)node[left]{$\y\Delta k$};
+		\coordinate(O)at(1,0.5);\coordinate(Q)at(35,0.5);
+		\node(P1)at(4,1)[label=right:{$4/35$}]{};
+		\node(P2)at(10,2)[label=left:{$10/35$}]{};
+		\node(P3)at(16,3)[label=left:{$16/35$}]{};
+		\node(P4)at(21,4)[label=left:{$21/35$}]{};
+		\node(P5)at(25,5)[label=left:{$25/35$}]{};
+		\node(P6)at(29,6)[label=left:{$29/35$}]{};
+		\node(P7)at(32,7)[label=left:{$32/35$}]{};
+		\node(P8)at(34,8)[label=left:{$34/35$}]{};
+		\node(P9)at(35,9)[label=left:{$35/35$}]{};
+		\draw plot[mark=*]coordinates{(O)(P1)(P2)(P3)(P4)(P5)(P6)(P7)(P8)(P9)};
+		\draw(18,0)node[below]{$g$};\draw(O)node[below]{$0$};\draw(Q)node[below]{$1$};
+		\foreach\n in{1,...,9}\draw($(O)!\n*1/10!(Q)$)node[below]{$0.\n$}--+(0,0.3);
+	\end{tikzpicture}
 	\caption
 		[$\nu$ 空間から $g$ 空間への写像]
 		{
@@ -597,7 +632,7 @@ $g[0]=0$、$g[k\to\infty]=1$、$dg=f\,dk$ であるから、分光透過率は�
 \begin{equation}
 	T_{\bar\nu}[u]
 	=\int_{\Delta\nu}\exp\left[-\int_u k_\nu\,du\right]\frac{d\nu}{\Delta\nu}
-	\stackrel{?}{=}\int^1_0\exp\left[-\int_uk[g]\,du\right]dg
+	\hmeqq\int^1_0\exp\left[-\int_uk[g]\,du\right]dg
 \end{equation}
 
 最初に、波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考えよう。
@@ -619,7 +654,20 @@ $|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下に
 	=\frac{2}{\delta}\nu[k]-1
 \end{equation}
 そして、$(2/\Delta\nu)\,d\nu=dg$となる。
-したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる
+したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる。
+
+\section{放射フラックス密度から温度分布を求める}
+ここまでの議論で、大気放射フラックス密度を求めた。大気放射フラックス密度から大気の温度分布を
+求める。
+
+大気が動かないと仮定すると、大気の局所的な気温の温度変化率は次の式で与えられる。
+
+\begin{equation}
+	\rho C_p\left(\frac{\partial T}{\partial t}\right)_\text{放射}
+	=-\frac{\partial}{\partial z}(F_\text{太陽放射}-F_\text{熱赤外放射})
+\end{equation}
+
+ここで、$C_p$ は定圧比熱、$F$ は正味の放射フラックス密度である。
 
 \section{まとめと今後の展望}
 
