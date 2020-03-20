@@ -19,8 +19,10 @@
 
 \usepackage{pxrubrica}
 \usepackage{autobreak}
-\usepackage{tikz,tcolorbox}
+\usepackage{tikz,pgfplots,tcolorbox}
 \usetikzlibrary{calc}
+\pgfplotsset{compat=1.16}
+
 \usepackage{epmaketitle} %https://github.com/matryo-sika/epmaketitle
 \renewcommand{\maketitle}{\epmaketitle}
 
@@ -311,7 +313,14 @@ $h=6.626\times10^{-34}\hmunit{J\,s}$、$K_\mathrm{B}=1.3806\times10^{-23}\hmunit
 を得る。ここで、$C_1=2\pi hc^2$、$C_2=hc/k_\mathrm{B}$ である。
 
 \begin{figure}[t]
-	\includegraphics[width=\textwidth]{planck.jpg}
+	\centering
+	\begin{tikzpicture}[x=.02\textwidth,y=.04\textwidth]
+		\begin{axis}[xmin=0,xmax=5,ymin=0,ymax=5]
+			\newcommand{\B}{(3.74185e-16)/((x**5)*pi*exp((1.43884e-2)/(\T*x))-1)};
+			\renewcommand{\B}{x}
+			\newcommand{\T}{7000}\addplot[samples=10000]gnuplot{\B};
+		\end{axis}
+	\end{tikzpicture}
 	\caption
 		[プランク関数]
 		{
