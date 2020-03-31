@@ -1,4 +1,4 @@
-\documentclass[article,twoside]{dennou777}
+\documentclass[book]{dennou777}
 \pagestyle{Dnofoot}
 
 \ltjsetparameter{jacharrange={-2}}%ギリシア文字、キリル文字を AL Char に。
@@ -160,7 +160,7 @@
 \tableofcontents
 \pagebreak
 
-\section{動機}
+\chapter{動機}
 
 ゼミでハドレー循環について勉強するにつれて、惑星大気の熱輸送について興味を持った。
 ハドレー循環とは、赤道で大気が加熱され上昇して高緯度へ移動した後に、下降して地表
@@ -172,6 +172,8 @@
 シミュレーションしたいと思った。そのためには大気の温度分布を計算する必要がある。
 その計算をするために、放射に関して、観測なども含めて基礎事項を解説している Liou
 の教科書~\cite{liou} を講読し、基礎的な事項について確認することとした。
+
+\chapter{放射に関する基本的な事項}
 
 \section{放射とは}
 
@@ -189,8 +191,8 @@
 \end{equation}
 
 放射は大気中のエネルギー輸送を担う重要な過程であるから、
-大気の温度分布を知るために、大気がどのように加熱されるかを知るためには、放射がどこで
-吸収され射出されるかを考えなければならない。
+大気の温度分布を知るために、大気がどのように加熱されるかを知るためには、放射がどこで
+吸収され射出されるかを考えなければならない。
 
 \section{基本的な放射量}
 
@@ -354,7 +356,7 @@ $0$ になる波長を求めれば良い。
 \begin{equation}
 	\frac{\partial B_\lambda[T]}{\partial\lambda}=0
 \end{equation}
-これを解くと
+これを解くと\footnote{導出は付録で行う。}
 \begin{equation}
 	\lambda_m=\frac{a}{T}
 \end{equation}
@@ -394,6 +396,7 @@ $\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
 		}
 \end{figure}
 
+\chapter{放射伝達方程式}
 
 \section{放射伝達方程式の導出}
 ある方向に進む放射が、吸収や散乱などの相互作用で、どのように増減するか記述するのが、
@@ -565,6 +568,8 @@ $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 	=\int_{\Delta\nu}\exp\left[-\int_u\sum_j k_{\nu,j}[u]\,du\right]\frac{d\nu}{\Delta\nu}
 \end{equation}
 
+\chapter{赤外放射伝達を計算するための手法}
+
 \section{相関 $k$ 分布法}
 相関 $k$ 分布法は、赤外放射伝達を計算するための手法である。
 均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので、波数積分は $k$ 空間での
@@ -691,6 +696,16 @@ $|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下に
 
 現在は、相関 $k$ 分布法で計算をする手順を学んでいるので、実際に相関 $k$ 分布法を用いた計算を
 行ってみたいと考えている。
+
+\clearpage
+\appendix
+\chapter{付録}
+黒体放射の最大放射強度の波長を求めるために、プランク関数を波長で偏微分する。
+\begin{align*}
+\frac{\partial B_\lambda[T]}{\partial\lambda}
+&=\frac{\partial}{\partial\lambda}\frac{C_1\lambda^{-5}}{\pi(\exp[C_2/(\lambda T)]-1)}\\
+
+\end{align*}
 
 \clearpage
 \begin{thebibliography}{9}
