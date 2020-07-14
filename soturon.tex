@@ -4,14 +4,15 @@
 \ltjsetparameter{jacharrange={-2}}%ギリシア文字、キリル文字を AL Char に。
 \usepackage[no-math,match,deluxe,fontspec,jfm_yoko=jlreq,jfm_tate=jlreqv]{luatexja-preset}
 
-\usepackage[T1]{fontenc}
 \usepackage{yhmath,amsmath,mathtools,amssymb,mathrsfs,rsfso,mleftright}
-\usepackage[math]{kurier}
+\usepackage[T1]{fontenc}
 \usepackage[euler-digits]{eulervm}
-\usepackage[scaled]{beramono}
-%\usepackage{classico,newpxtext}
-\DeclareMathAlphabet{\mathtt}{T1}{fvm}{m}{n}
-\DeclareMathAlphabet{\mathsf}{T1}{uop}{m}{n}
+\mleftright
+\SetSymbolFont{operators}{normal}{T1}{uop}{m}{n}
+\DeclareMathAlphabet{\mathrm}{T1}{uop}{m}{n}
+\DeclareMathAlphabet{\mathit}{T1}{pplx}{m}{it}
+\DeclareMathAlphabet{\mathtt}{T1}{lmtt}{m}{n}
+\DeclareMathAlphabet{\mathsf}{T1}{kurier}{m}{n}
 
 \usepackage[unicode,colorlinks]{hyperref}
 % \hypersetup{linkcolor=blue,urlcolor=teal,citecolor=olive}
@@ -26,81 +27,26 @@
 \usepackage{epmaketitle} %https://github.com/matryo-sika/epmaketitle
 \renewcommand{\maketitle}{\epmaketitle}
 
-\setmainfont{Exo 2}
-\setsansfont{Exo 2}
+\setmainfont{Palatino}
 \setmainjfont{FOT-MatissePro-DB}[
-	AltFont={
-		{
-			Range={
-				"4E00-"9FFF, % CJK 統合漢字
-				"3400-"4DFF, % CJK 統合漢字拡張 A
-				"20000-"2EBE0, % CJK 統合漢字拡張 B-F
-				"2460-"24FF, % 囲み英数字
-				"3200-"32FF, % 囲み CJK 文字・月
-				"1F100-"1F2FF % 囲み英数字補助、漢字補助
-			},
-			Font=FOT-RodinNTLGPro-DB,
-		},
-	},
-	BoldFeatures={
-		Font=FOT-MatissePro-EB,
-		AltFont={
-			{
-				Range={
-					"4E00-"9FFF, % CJK 統合漢字
-					"3400-"4DFF, % CJK 統合漢字拡張 A
-					"20000-"2EBE0, % CJK 統合漢字拡張 B-F
-					"2460-"24FF, % 囲み英数字
-					"3200-"32FF, % 囲み CJK 文字・月
-					"1F100-"1F2FF % 囲み英数字補助、漢字補助
-				},
-				Font=FOT-RodinNTLGPro-EB,
-			},
-		},
-	},
-	YokoFeatures={JFM=jlreq},   % jlreqのJFMを維持する
-	TateFeatures={JFM=jlreqv},  % https://qiita.com/zr_tex8r/items/91ae1dcc9c3afce7fa8c
+BoldFeatures={Font=FOT-MatissePro-EB,},
+YokoFeatures={JFM=jlreq},   % jlreqのJFMを維持する
+TateFeatures={JFM=jlreqv},  % https://qiita.com/zr_tex8r/items/91ae1dcc9c3afce7fa8c
 ]
+\setsansfont{Optima}
 \setsansjfont{FOT-RodinNTLGPro-DB}[
-	AltFont={
-		{
-			Range={
-				"4E00-"9FFF, % CJK 統合漢字
-				"3400-"4DFF, % CJK 統合漢字拡張 A
-				"20000-"2EBE0, % CJK 統合漢字拡張 B-F
-				"2460-"24FF, % 囲み英数字
-				"3200-"32FF, % 囲み CJK 文字・月
-				"1F100-"1F2FF % 囲み英数字補助、漢字補助
-			},
-			Font=FOT-RodinNTLGPro-DB,
-		},
-	},
-	BoldFeatures={
-		Font=FOT-MatissePro-EB,
-		AltFont={
-			{
-				Range={
-					"4E00-"9FFF, % CJK 統合漢字
-					"3400-"4DFF, % CJK 統合漢字拡張 A
-					"20000-"2EBE0, % CJK 統合漢字拡張 B-F
-					"2460-"24FF, % 囲み英数字
-					"3200-"32FF, % 囲み CJK 文字・月
-					"1F100-"1F2FF % 囲み英数字補助、漢字補助
-				},
-				Font=FOT-RodinNTLGPro-EB,
-			},
-		},
-	},
-	YokoFeatures={JFM=jlreq},   % jlreqのJFMを維持する
-	TateFeatures={JFM=jlreqv},  % https://qiita.com/zr_tex8r/items/91ae1dcc9c3afce7fa8c
-]\setmonofont[
-	Ligatures=TeX,
-	Scale=0.89,
-]{DejaVu Sans Mono}
-\setmonojfont[
-	Ligatures=TeX,
-	Scale=0.89,
-]{NotoSansMonoCJKjp-Regular}
+BoldFeatures={Font=FOT-RodinNTLGPro-EB,},
+YokoFeatures={JFM=jlreq},   % jlreqのJFMを維持する
+TateFeatures={JFM=jlreqv},  % https://qiita.com/zr_tex8r/items/91ae1dcc9c3afce7fa8c
+]
+\setmonofont{HackGen}[
+Ligatures=TeXReset,
+Scale=0.89,
+]
+\setmonojfont{HackGen}[
+Ligatures=TeXReset,
+Scale=0.89,
+]
 
 \allowdisplaybreaks[4]
 \ltjenableadjust[lineend=extended,priority=true,profile=true,linestep=true]
@@ -140,6 +86,8 @@
 
 \rule{0pt}{0pt}\vfill
 \section*{要旨}
+\begin{figure}
+\end{figure}
 ハドレー循環について勉強するにつれて、惑星大気の熱輸送について興味を持った。
 地球でない惑星における大気の熱輸送のふるまいは自転周期や地軸の傾きによって
 大きく変化すると期待される。
@@ -152,7 +100,7 @@
 
 実際に大気の温度分布を知るためには、微分方程式で表される放射伝達方程式を解かなければ
 ならない。そのために、放射伝達方程式を形式的に解き、さらに具体的に数値解を求める
-手法として、相関 $k$ 分布法について紹介する。
+手法として、相関 \(k\) 分布法について紹介する。
 \vfill\rule{0pt}{0pt}
 
 \pagebreak
@@ -162,9 +110,18 @@
 
 \chapter{動機}
 
+\begin{figure}[t]
+	\centering\label{hadley}
+	\includegraphics[width=.7\textwidth]{hadley.jpg}
+	\caption[ハドレー循環の概念図]{
+		ハドレー循環の概念図。Vallis (2017)~\cite{vallis} より抜粋。
+		赤道域で大気が温められて上昇し、中緯度まで移動した後に下降して
+		赤道付近に戻るという循環が起きている。
+	}
+\end{figure}
 ゼミでハドレー循環について勉強するにつれて、惑星大気の熱輸送について興味を持った。
 ハドレー循環とは、赤道で大気が加熱され上昇して高緯度へ移動した後に、下降して地表
-付近を南下して赤道へ戻るという、大気の大循環のことである。地球でない惑星についても、
+付近を南下して赤道へ戻るという、大気の大循環のことである（図~\ref{hadley}）。地球でない惑星についても、
 ハドレー循環が起こりうると考えられ、そのふるまいは自転周期や地軸の傾きによって大きく
 変化すると期待される。
 
@@ -177,15 +134,15 @@
 
 \section{放射とは}
 
-\hmemph{放射}とは電磁波のことであり、輻射とも呼ばれる\cite{asano}。放射は、大気中の
+\hmemph{放射}とは電磁波のことであり、輻射とも呼ばれる~\cite{asano}。放射は、大気中の
 エネルギー輸送を担う重要な過程であり、波動の形で伝搬する。そして、全ての放射は同じ速さ、
-すなわち光速$c=2.9979\times10^8\hmunit{m/s}$ で伝播する。
+すなわち光速\(c=2.9979\times10^8\hmunit{m/s}\) で伝播する。
 
-電磁波では、周波数 $\tilde\nu$ と波長 $\lambda$ が以下の式で関連付けられる。
+電磁波では、周波数 \(\tilde\nu\) と波長 \(\lambda\) が以下の式で関連付けられる。
 \begin{equation}
 	\lambda=\frac{c}{\tilde\nu}
 \end{equation}
-また、赤外放射の特性を表すために、習慣的に以下の式で表される波数 $\nu$ も用いられる。
+また、赤外放射の特性を表すために、習慣的に以下の式で表される波数 \(\nu\) も用いられる。
 \begin{equation}
 	\nu=\frac{\tilde\nu}{c}=\frac{1}{\lambda}
 \end{equation}
@@ -202,15 +159,15 @@
 \begin{figure}[t]
 	\includegraphics[width=\linewidth]{eq2.jpg}
 	\caption
-		[極座標で示された微小立体角の図]
-		{極座標で示された微小立体角の図。Liou~\cite{liou} による。}
+	[極座標で示された微小立体角の図]
+	{極座標で示された微小立体角の図。Liou~\cite{liou} による。}
 \end{figure}
 
-\hmemph{単色の放射強度} $I_\lambda$ を導入する。
-面積 $dA$ を横切り、$dA$ の法線からなす角 $\theta$ の方向にある微小立体角 $d\Omega$
-から入射する、ある波長区間 $\lambda$ 〜 $\lambda+d\lambda$ における、微小時間 $dt$
-の間の微小放射エネルギー量 $dE_\lambda$ を考える。このとき、$dE_\lambda$ は単色の
-放射強度$I_\lambda$ に関する式として、
+\hmemph{単色の放射強度} \(I_\lambda\) を導入する。単色の放射強度は、
+なす角 \(\theta\) の方向にある微小立体角 \(d\Omega\) から入射した、
+ある波長区間 \([\lambda,\lambda+d\lambda]\)における、微小時間 \(dt\)
+の間に面積 \(dA\) を通過した微小放射エネルギー量 \(dE_\lambda\)
+を用いて定義される。
 \begin{equation}
 	dE_\lambda=I_\lambda\cos[\theta]\,dA\,d\Omega\,d\lambda\,dt
 \end{equation}
@@ -220,8 +177,8 @@
 \end{equation}
 式より明らかなように、単色の放射強度には、放射が流れる方向が含まれている。
 
-半球の全立体角にわたって積分された $I_\lambda$ の法線成分は、
-\hmemph{単色の放射フラックス密度} $F_\lambda$ と呼ばれる。
+半球の全立体角にわたって積分された \(I_\lambda\) の法線成分は、
+\hmemph{単色の放射フラックス密度} \(F_\lambda\) と呼ばれる。
 \begin{equation}
 	F_\lambda=\int_\Omega I_\lambda\cos[\theta]\,d\Omega
 \end{equation}
@@ -231,11 +188,11 @@
 \end{equation}
 となる。
 
-\hmemph{全放射フラックス密度} $F$ は単色の放射フラックス密度を、波長全体で積分したものである。
+\hmemph{全放射フラックス密度} \(F\) は単色の放射フラックス密度を、波長全体で積分したものである。
 \begin{equation}
 	F=\int^\infty_0 F_\lambda\,d\lambda
 \end{equation}
-全放射フラックス密度を、面全体で積分したものは\hmemph{全放射フラックス} $f$ と呼ばれる。
+全放射フラックス密度を、面全体で積分したものは\hmemph{全放射フラックス} \(f\) と呼ばれる。
 \begin{equation}
 	f=\int_AF\,dA
 \end{equation}
@@ -247,10 +204,10 @@
 		\hline
 		記号&放射量&次元&単位\\
 		\hline\hline
-		$E$&放射エネルギー&$\hmunit{ML^2T^{-2}}$&$\hmunit{J}$\\
-		$f$&放射フラックス&$\hmunit{ML^2T^{-3}}$&$\hmunit{J\,s^{-1}}$, $\hmunit{W}$\\
-		$F$&放射フラックス密度&$\hmunit{MT^{-3}}$&$\hmunit{W\,m^{-2}}$\\
-		$I$&放射強度&$\hmunit{MT^{-3}}$&$\hmunit{W\,m^{-2}\,sr^{-2}}$\\
+		\(E\)&放射エネルギー&\(\hmunit{ML^2T^{-2}}\)&\(\hmunit{J}\)\\
+		\(f\)&放射フラックス&\(\hmunit{ML^2T^{-3}}\)&\(\hmunit{J\,s^{-1}}\), \(\hmunit{W}\)\\
+		\(F\)&放射フラックス密度&\(\hmunit{MT^{-3}}\)&\(\hmunit{W\,m^{-2}}\)\\
+		\(I\)&放射強度&\(\hmunit{MT^{-3}}\)&\(\hmunit{W\,m^{-2}\,sr^{-2}}\)\\
 		\hline
 	\end{tabular}
 \end{table}
@@ -263,7 +220,7 @@
 
 入射波と衝突した粒子が、入射した電磁波のエネルギーを、あらゆる方向に
 再放射する過程は\hmemph{散乱}と呼ばれる。散乱はすべての波長で発生し、粒子の大きさが影響する。
-粒子の大きさが散乱に及ぼす影響は、サイズパラメーター $x=2\pi a/\lambda$ （$a$ は粒径）に
+粒子の大きさが散乱に及ぼす影響は、サイズパラメーター \(x=2\pi a/\lambda\) （\(a\) は粒径）に
 よって推定することができる。また、散乱は
 粒子が少ないとき、個々の粒子が全く同じように散乱する\hmemph{独立散乱}と、
 粒子が多量にあるとき、散乱が繰り返される\hmemph{多重散乱}に分けられる。
@@ -271,14 +228,14 @@
 \begin{figure}[t]
 	\includegraphics[width=\linewidth]{mscatter.jpg}
 	\caption
-		[多重散乱過程を示す図]
-		{$\mathrm{d}$ で示す方向へと散乱する、多重散乱過程。Liou~\cite{liou} より。}
+	[多重散乱過程を示す図]
+	{\(\mathrm{d}\) で示す方向へと散乱する、多重散乱過程。Liou~\cite{liou} より。}
 \end{figure}
 \begin{figure}[t]
 	\includegraphics[width=0.8\textwidth]{scatter.jpg}
 	\caption
-		[サイズパラメーターが散乱へ及ぼす影響]
-		{サイズパラメーター $x$ の、散乱に及ぼす影響を示した図。Liou~\cite{liou}より。}
+	[サイズパラメーターが散乱へ及ぼす影響]
+	{サイズパラメーター \(x\) の、散乱に及ぼす影響を示した図。Liou~\cite{liou}より。}
 \end{figure}
 
 \section{黒体放射の法則}
@@ -293,26 +250,26 @@
 \begin{equation}
 	E=nh\tilde\nu
 \end{equation}
-に量子化されると仮定した。ここで、$n\in\mathbb{Z}$ は量子数、$h$ はプランク定数、
-$\tilde\nu$ は振動子の周波数である。
+に量子化されると仮定した。ここで、\(n\in\mathbb{Z}\) は量子数、\(h\) はプランク定数、
+\(\tilde\nu\) は振動子の周波数である。
 
 放出されたエネルギーを求めるためには、マクスウェル・ボルツマン統計に従った、起こりうる
-全ての状態の周波数 $\tilde\nu$ から振動子の総数を知る必要がある。以上の仮定をもとに、
+全ての状態の周波数 \(\tilde\nu\) から振動子の総数を知る必要がある。以上の仮定をもとに、
 振動子あたりの平均放射エネルギーで正規化すると、射出された単色の放射強度を表す式として、
 周波数と絶対温度の関数であるプランク関数が次のように求まる\footnote{プランク関数の導出は
 付録にて行う}。
 \begin{equation}
 	B_{\tilde{\nu}}[T]=\frac{2h\tilde{\nu}^3}{c^2(\exp[h\tilde{\nu}/k_\mathrm{B}T]-1)}
 \end{equation}
-ここで、$h$ はプランク定数、 $k_\mathrm{B}$ はボルツマン定数、$c$ は光速、$T$ は絶対温度
+ここで、\(h\) はプランク定数、 \(k_\mathrm{B}\) はボルツマン定数、\(c\) は光速、\(T\) は絶対温度
 である。プランク定数とボルツマン定数は実験によって決定され、
-$h=6.626\times10^{-34}\hmunit{J\,s}$、$K_\mathrm{B}=1.3806\times10^{-23}\hmunit{J\,K^{-1}}$
-である。さらに、波長 $\lambda=c/\tilde\nu$ に関する式に書き直すと、
+\(h=6.626\times10^{-34}\hmunit{J\,s}\)、\(K_\mathrm{B}=1.3806\times10^{-23}\hmunit{J\,K^{-1}}\)
+である。さらに、波長 \(\lambda=c/\tilde\nu\) に関する式に書き直すと、
 \begin{equation}
 	B_\lambda[T]=\frac{2hc^2}{\lambda^5(\exp[hc/k_\mathrm{B}\lambda T]-1)}=
 	\frac{C_1\lambda^{-5}}{\pi(\exp[C_2/\lambda T]-1)}
 \end{equation}
-を得る。ここで、$C_1=2\pi hc^2$、$C_2=hc/k_\mathrm{B}$ である。
+を得る。ここで、\(C_1=2\pi hc^2\)、\(C_2=hc/k_\mathrm{B}\) である。
 
 \begin{figure}[t]
 	\centering
@@ -324,16 +281,16 @@ $h=6.626\times10^{-34}\hmunit{J\,s}$、$K_\mathrm{B}=1.3806\times10^{-23}\hmunit
 		\end{axis}
 	\end{tikzpicture}
 	\caption
-		[プランク関数]
-		{
-			いくつかの射出温度における、波長に対する黒体の放射強度（プランク関数）。
-			Liou~\cite{liou}より。
-		}
+	[プランク関数]
+	{
+		いくつかの射出温度における、波長に対する黒体の放射強度（プランク関数）。
+		Liou~\cite{liou}より。
+	}
 \end{figure}
 
 \subsection{ステファン・ボルツマンの法則}
 黒体の全放射強度を求めるためには、プランク関数を波長全体で積分すればよい。ここで、
-$b=2\pi^4k_\mathrm{B}^4/(15c^2h^3)$ を導入すると、
+\(b=2\pi^4k_\mathrm{B}^4/(15c^2h^3)\) を導入すると、
 \begin{equation}
 	B[T]=\int^\infty_0 B_\lambda[T]\,d\lambda=bT^4
 \end{equation}
@@ -341,10 +298,10 @@ $b=2\pi^4k_\mathrm{B}^4/(15c^2h^3)$ を導入すると、
 \begin{equation}
 	F=\pi B[T]=\sigma T^4
 \end{equation}
-となる。ここで、$\sigma=5.67\times10^{-8}\hmunit{J\,m^{-2}\,s^{-1}\,k_\mathrm{B}^{-4}}$は
+となる。ここで、\(\sigma=5.67\times10^{-8}\hmunit{J\,m^{-2}\,s^{-1}\,k_\mathrm{B}^{-4}}\)は
 ステファン・ボルツマン定数と呼ばれる。
 
-この式は、黒体によって放出される放射フラックス密度が、絶対温度の $4$ 乗に比例することを
+この式は、黒体によって放出される放射フラックス密度が、絶対温度の \(4\) 乗に比例することを
 示していて、\hmemph{ステファン・ボルツマンの法則}と呼ばれる。これは、広い波長域での
 赤外放射伝達の解析をする際に基礎となる法則である。
 
@@ -352,7 +309,7 @@ $b=2\pi^4k_\mathrm{B}^4/(15c^2h^3)$ を導入すると、
 黒体放射の最大放射強度の波長が、温度に反比例することを、\hmemph{ウィーンの変位則}と呼ぶ。
 
 黒体放射の最大放射強度の波長を求めるには、プランク関数を波長で偏微分し、その偏微分係数が
-$0$ になる波長を求めれば良い。
+\(0\) になる波長を求めれば良い。
 \begin{equation}
 	\frac{\partial B_\lambda[T]}{\partial\lambda}=0
 \end{equation}
@@ -360,7 +317,7 @@ $0$ になる波長を求めれば良い。
 \begin{equation}
 	\lambda_m=\frac{a}{T}
 \end{equation}
-を得る。ここで、$a=2.897\times10^{-3}\hmunit{m\,K}$ はウィーンの変位定数と呼ばれている。
+を得る。ここで、\(a=2.897\times10^{-3}\hmunit{m\,K}\) はウィーンの変位定数と呼ばれている。
 
 \subsection{キルヒホッフの法則}
 \hmemph{キルヒホッフの法則}は、射出と吸収が等しくなるという法則である。
@@ -382,18 +339,18 @@ $0$ になる波長を求めれば良い。
 \begin{equation}
 	k_\nu=\frac{S}{\pi}\frac{\alpha}{(\nu-\nu_0)^2+\alpha^2}=Sf[\nu-\nu_0]
 \end{equation}
-によって定式化される。ここで、$k_\nu$は吸収係数、$\nu_0$ は理想的な単色の吸収線の波数、
-$\alpha$ は吸収線の半値半幅であり、圧力と温度の関数、$f$ は形状因子 (shape factor);\quad
-$\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
+によって定式化される。ここで、\(k_\nu\)は吸収係数、\(\nu_0\) は理想的な単色の吸収線の波数、
+\(\alpha\) は吸収線の半値半幅であり、圧力と温度の関数、\(f\) は形状因子 (shape factor);\quad
+\(\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu\): 線強度
 
 \begin{figure}[t]
 	\includegraphics[width=\textwidth]{lorentz.jpg}
 	\caption
-		[ローレンツ線形とドップラー線形]
-		{
-			同じ吸収線強度と吸収線の幅を持った、ローレンツ線形とドップラー線形。
-			Liou~\cite{liou} より。
-		}
+	[ローレンツ線形とドップラー線形]
+	{
+		同じ吸収線強度と吸収線の幅を持った、ローレンツ線形とドップラー線形。
+		Liou~\cite{liou} より。
+	}
 \end{figure}
 
 \chapter{放射伝達方程式}
@@ -402,21 +359,21 @@ $\displaystyle S=\int^\infty_{-\infty}k_\nu\,d\nu$: 線強度
 ある方向に進む放射が、吸収や散乱などの相互作用で、どのように増減するか記述するのが、
 放射伝達方程式である。放射伝達方程式を導き、特定の状況での放射伝達方程式の解を求める。
 
-まず、放射伝達強度の変化 $dI_\lambda$ を、物質との相互作用による減少
-$dI_\lambda^\mathrm{d}$ と、射出と多重散乱による増加 $dI_\lambda^\mathrm{s}$ に分けて考える。
+まず、放射伝達強度の変化 \(dI_\lambda\) を、物質との相互作用による減少
+\(dI_\lambda^\mathrm{d}\) と、射出と多重散乱による増加 \(dI_\lambda^\mathrm{s}\) に分けて考える。
 \begin{equation}
 	dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
 \end{equation}
 
-$dI_\lambda^\mathrm{d}$ について、放射の伝搬方向に厚さ $ds$ で密度 $\rho$ の媒質を
+\(dI_\lambda^\mathrm{d}\) について、放射の伝搬方向に厚さ \(ds\) で密度 \(\rho\) の媒質を
 横切った後に、放射強度が減少したとする。このとき、
 \begin{equation}
 	dI_\lambda^\mathrm{d}=-k_\lambda\rho i_\lambda\,ds
 \end{equation}
-となる。ここで、係数 $k_\lambda$ は質量消散断面積と呼ばれる。
+となる。ここで、係数 \(k_\lambda\) は質量消散断面積と呼ばれる。
 
-一方で、以下の式によって放射源係数 $j_\lambda$ を導入して、放射伝達強度の増加
-$dI_\lambda^\mathrm{s}$ を
+一方で、以下の式によって放射源係数 \(j_\lambda\) を導入して、放射伝達強度の増加
+\(dI_\lambda^\mathrm{s}\) を
 \begin{equation}
 	dI_\lambda^\mathrm{s}=j_\lambda\rho\,ds
 \end{equation}
@@ -427,7 +384,7 @@ $dI_\lambda^\mathrm{s}$ を
 	dI_\lambda=dI_\lambda^\mathrm{d}+dI_\lambda^\mathrm{s}
 	=-k_\lambda\rho I_\lambda\,ds+j_\lambda\rho\,ds
 \end{equation}
-を得る。さらに、放射源関数 $J_\lambda\equiv j_\lambda/k_\lambda$ を導入すると、
+を得る。さらに、放射源関数 \(J_\lambda\equiv j_\lambda/k_\lambda\) を導入すると、
 \begin{equation}
 	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+J_\lambda
 \end{equation}
@@ -436,17 +393,17 @@ $dI_\lambda^\mathrm{s}$ を
 \subsection{ビーアー・ブーゲー・ランバートの法則}
 ここからは、具体的な場合の放射伝達方程式の解を考える。
 
-大気系からの射出の寄与を無視できる場合を考えよう。この場合は、放射源関数 $J_\lambda$
+大気系からの射出の寄与を無視できる場合を考えよう。この場合は、放射源関数 \(J_\lambda\)
 が無視できるので、放射伝達方程式は
 \begin{equation}
 	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda
 \end{equation}
-となる。$s=0$ における入射強度を $I_\lambda[0]$ とし、距離 $s_1$ 離れた位置における
-射出強度 $I_\lambda[s_1]$ を求めるために、これを積分すると
+となる。\(s=0\) における入射強度を \(I_\lambda[0]\) とし、距離 \(s_1\) 離れた位置における
+射出強度 \(I_\lambda[s_1]\) を求めるために、これを積分すると
 \begin{equation}
 	I_\lambda[s_1]=I_\lambda[0]\exp[-\int^{s_1}_0 k_\lambda\rho\,ds]
 \end{equation}
-となる。ここで、媒質が均一であると仮定すると、$k_\lambda$ は $s$ に依存しないので、光路長を
+となる。ここで、媒質が均一であると仮定すると、\(k_\lambda\) は \(s\) に依存しないので、光路長を
 \begin{equation}
 	u=\int^{s_1}_0\rho\,ds
 \end{equation}
@@ -468,7 +425,7 @@ $dI_\lambda^\mathrm{s}$ を
 	\frac{dI_\lambda}{k_\lambda\rho\,ds}=-I_\lambda+B_\lambda[T]
 \end{equation}
 
-シュワルツシルトの式の解は、$s$ と $s_1$ の間の光学的厚さ
+シュワルツシルトの式の解は、\(s\) と \(s_1\) の間の光学的厚さ
 \begin{equation}
 	\tau_\lambda[s_1,s]=\int^{s_1}_s k_\lambda\rho\,ds
 \end{equation}
@@ -486,16 +443,16 @@ $dI_\lambda^\mathrm{s}$ を
 放射強度と大気パラメーターは鉛直方向にのみ変化すると仮定する。
 
 放射強度と大気パラメーターは鉛直方向にのみ変化するので、放射強度は天頂角と鉛直位置のみの
-関数である。放射源関数として、プランク放射強度 $B_\nu[z]=B_\nu[T[z]]$ を用いると、
+関数である。放射源関数として、プランク放射強度 \(B_\nu[z]=B_\nu[T[z]]\) を用いると、
 高度座標の放射伝達方程式は
 \begin{equation}
 	-\mu\frac{dI_\nu[z,\mu]}{k_\nu\rho_a\,dz}=I_\nu[z,\mu]-B_\nu[z]
 \end{equation}
 となる。
 
-この式には、$dz$、$k_\nu$、$\rho_a$の積が含まれているので、次の式で与えられる光学的深さ
-$\tau$ を導入すると便利である。ここで、$\mathrm{TOA}$ は大気上端であり、
-$q=\rho_a/\rho$ は気体の混合比である。
+この式には、\(dz\)、\(k_\nu\)、\(\rho_a\)の積が含まれているので、次の式で与えられる光学的深さ
+\(\tau\) を導入すると便利である。ここで、\(\mathrm{TOA}\) は大気上端であり、
+\(q=\rho_a/\rho\) は気体の混合比である。
 \begin{equation}
 	\tau=\int^{\mathrm{TOA}}_{z} k_\nu[z]\rho_a[z]\,dz=\int^p_0 k_\nu[p]q[p]\frac{dp}{g}
 \end{equation}
@@ -503,33 +460,33 @@ $q=\rho_a/\rho$ は気体の混合比である。
 \begin{equation}
 	d\tau=-k_\nu[z]\rho_a[z]\,dz=k_\nu[p]q[p]dp/g
 \end{equation}
-ここで、放射伝達方程式を $\tau$ 座標に変換すると、
+ここで、放射伝達方程式を \(\tau\) 座標に変換すると、
 \begin{equation}
 	\mu\frac{dI_\nu[\tau,\mu]}{d\tau}=I_\nu[\tau,\mu]-B_\nu[\tau]
 \end{equation}
 を得る。
 
-これは 1 階微分方程式であるから、全光学的厚さ $\tau_*$ である大気の、
+これは 1 階微分方程式であるから、全光学的厚さ \(\tau_*\) である大気の、
 上向き成分と下向き成分を解くためには、適切に境界条件を設定しなければならない。
 そこで、地球表面からの射出と大気上端 (TOA) からの射出が等方性となると仮定する。
 
-一般に、地球表面は赤外の領域では黒体と仮定できるので、$I_\nu[\tau_*,\mu]=B_\nu[\tau_*]$
-となる。さらに、大気上端では下向きの放射源がなく、 $I_\nu[0,-\mu]=B[\mathrm{TOA}]\simeq0$
+一般に、地球表面は赤外の領域では黒体と仮定できるので、\(I_\nu[\tau_*,\mu]=B_\nu[\tau_*]\)
+となる。さらに、大気上端では下向きの放射源がなく、 \(I_\nu[0,-\mu]=B[\mathrm{TOA}]\simeq0\)
 であるとと仮定する。この境界条件に従うと、上向きと下向きの放射強度は、
 \begin{align}
 	I^\uparrow_\nu[\tau,\mu]
 		&=B_\nu[\tau_*]e^{-\tau_*=\tau)/\mu}
 		+\int^{\tau_*}_\tau B_\nu[\tau']e^{-\tau_*=\tau)/\mu}\frac{d\tau'}{d\mu}\\
-	I^\downarrow_\nu[\tau,-\mu]
+		I^\downarrow_\nu[\tau,-\mu]
 		&=\int^{\tau_*}_\tau B_\nu[\tau']e^{-\tau_*=\tau)/\mu}\frac{d\tau'}{d\mu}
 \end{align}
 で与えられる。この解に含まれる、指数関数的な減衰を表すことができるように、単色の透過率
-$T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
+\(T_\nu[\tau/\mu]=e^{-\tau/\mu}\) を定義すると、放射強度の型式解は
 \begin{align}
 	I^\uparrow_\nu[\tau,\mu]
 		&=B_\nu[\tau_*]T_\nu\left[\frac{\tau_\nu-\tau}{\mu}\right]
 		-\int^{\tau_*}_\tau B_\nu[\tau']\frac{d}{d\tau'}T_\nu\left[\frac{\tau'-\tau}{\mu}\right]d\tau'\\
-	I^\downarrow_\nu[\tau,-\mu]
+		I^\downarrow_\nu[\tau,-\mu]
 		&=\int^\tau_0 B_\nu[\tau']\frac{d}{d\tau'}T_\nu\left[\frac{\tau-\tau'}{\mu}\right]d\tau'
 \end{align}
 で表すことができる。
@@ -547,10 +504,10 @@ $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 	F^\uparrow_\nu[\tau]
 		&=\pi B_\nu[\tau_*]T^f_\nu[\tau_*-\tau]
 		-\int^{\tau_*}_\tau \pi B_\nu[\tau']\frac{d}{d\tau'}T^f_\nu[\tau'-\tau]d\tau'\\
-	F^\downarrow_\nu[\tau]
+		F^\downarrow_\nu[\tau]
 		&=\int^\tau_0 \pi B_\nu[\tau']\frac{d}{d\tau'}T^f_\nu[\tau-\tau']d\tau'
 \end{align}
-で表される。放射フラックスの波数積分は、$\tau$ が波数の関数なので、
+で表される。放射フラックスの波数積分は、\(\tau\) が波数の関数なので、
 \begin{equation}
 	F^{\uparrow\downarrow}[z]=\int^\infty_0 F^{\uparrow\downarrow}_\nu[z]\,d\nu
 \end{equation}
@@ -561,7 +518,7 @@ $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 赤外放射伝達の計算をする際は、プランク関数の変動が無視しうるような
 小さな波数区間で放射パラメーターを決めることが有効である。
 放射強度と放射フラックスの方程式における基本的な放射パラメーターとして、
-平均波数の添字 $\bar\nu$ のついた分光透過率を定義する。
+平均波数の添字 \(\bar\nu\) のついた分光透過率を定義する。
 \begin{equation}
 	T_{\bar\nu}[u]
 	=\int_{\Delta\nu}\exp[-\tau]\frac{d\nu}{\Delta\nu}
@@ -570,10 +527,10 @@ $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 
 \chapter{赤外放射伝達を計算するための手法}
 
-\section{相関 $k$ 分布法}
-相関 $k$ 分布法は、赤外放射伝達を計算するための手法である。
-均質な大気では分光透過率は吸収係数 $k$ の順序に依存しないので、波数積分は $k$ 空間での
-積分に置き換えることができる。相関 $k$ 分布法は、気体の分光透過率を吸収係数 $k_\nu$ に
+\section{相関 \(k\) 分布法}
+相関 \(k\) 分布法は、赤外放射伝達を計算するための手法である。
+均質な大気では分光透過率は吸収係数 \(k\) の順序に依存しないので、波数積分は \(k\) 空間での
+積分に置き換えることができる。相関 \(k\) 分布法は、気体の分光透過率を吸収係数 \(k_\nu\) に
 応じてグループとして扱い、積分空間を置換する手法である。
 
 \begin{figure}[t]
@@ -581,48 +538,51 @@ $T_\nu[\tau/\mu]=e^{-\tau/\mu}$ を定義すると、放射強度の型式解は
 	\begin{tikzpicture}[x=.02\textwidth,y=.04\textwidth]
 		\draw[thick](1,0.5)rectangle(35,9.5);
 		\foreach\y in{1,...,9}\draw($(1,\y)+(0,0.5)$)--($(35,\y)+(0,0.5)$);
-		\foreach\y in{1,...,9}\draw(1,\y)node[left]{$\y\Delta k$};
+		\foreach\y in{1,...,9}\draw(1,\y)node[left]{\(\y\Delta k\)};
 		\draw plot[mark=*]coordinates{
-			(1,1)(2,2)(3,3)(4,4)(5,5)(6,6)(7,7)(8,6)(9,5)(10,4)(11,3)(12,2)(13,1)
-			(14,2)(15,3)(16,4)(17,3)(18,2)(19,1)(20,2)(21,3)(22,4)(23,5)(24,6)
-			(25,7)(26,8)(27,9)(28,8)(29,7)(30,6)(31,5)(32,4)(33,3)(34,2)(35,1)
-		};
-		\draw(18,0)node[below]{$\nu$};
+				(1,1)(2,2)(3,3)(4,4)(5,5)(6,6)(7,7)(8,6)(9,5)(10,4)(11,3)(12,2)(13,1)
+				(14,2)(15,3)(16,4)(17,3)(18,2)(19,1)(20,2)(21,3)(22,4)(23,5)(24,6)
+				(25,7)(26,8)(27,9)(28,8)(29,7)(30,6)(31,5)(32,4)(33,3)(34,2)(35,1)
+			};
+		\draw(18,0)node[below]{\(\nu\)};
 	\end{tikzpicture}
 	\begin{tikzpicture}[x=.02\textwidth,y=.04\textwidth]
 		\draw[thick](1,0.5)rectangle(35,9.5);
 		\foreach\y in{1,...,9}\draw($(1,\y)+(0,0.5)$)--($(35,\y)+(0,0.5)$);
-		\foreach\y in{1,...,9}\draw(1,\y)node[left]{$\y\Delta k$};
+		\foreach\y in{1,...,9}\draw(1,\y)node[left]{\(\y\Delta k\)};
 		\coordinate(O)at(1,0.5);\coordinate(Q)at(35,0.5);
-		\node(P1)at(4,1)[label=right:{$4/35$}]{};
-		\node(P2)at(10,2)[label=left:{$10/35$}]{};
-		\node(P3)at(16,3)[label=left:{$16/35$}]{};
-		\node(P4)at(21,4)[label=left:{$21/35$}]{};
-		\node(P5)at(25,5)[label=left:{$25/35$}]{};
-		\node(P6)at(29,6)[label=left:{$29/35$}]{};
-		\node(P7)at(32,7)[label=left:{$32/35$}]{};
-		\node(P8)at(34,8)[label=left:{$34/35$}]{};
-		\node(P9)at(35,9)[label=left:{$35/35$}]{};
+		\node(P1)at(4,1)[label=right:{\(4/35\)}]{};
+		\node(P2)at(10,2)[label=left:{\(10/35\)}]{};
+		\node(P3)at(16,3)[label=left:{\(16/35\)}]{};
+		\node(P4)at(21,4)[label=left:{\(21/35\)}]{};
+		\node(P5)at(25,5)[label=left:{\(25/35\)}]{};
+		\node(P6)at(29,6)[label=left:{\(29/35\)}]{};
+		\node(P7)at(32,7)[label=left:{\(32/35\)}]{};
+		\node(P8)at(34,8)[label=left:{\(34/35\)}]{};
+		\node(P9)at(35,9)[label=left:{\(35/35\)}]{};
 		\draw plot[mark=*]coordinates{(O)(P1)(P2)(P3)(P4)(P5)(P6)(P7)(P8)(P9)};
-		\draw(18,0)node[below]{$g$};\draw(O)node[below]{$0$};\draw(Q)node[below]{$1$};
-		\foreach\n in{1,...,9}\draw($(O)!\n*1/10!(Q)$)node[below]{$0.\n$}--+(0,0.3);
+		\draw(18,0)node[below]{\(g\)};\draw(O)node[below]{\(0\)};\draw(Q)node[below]{\(1\)};
+		\foreach\n in{1,...,9}\draw($(O)!\n*1/10!(Q)$)node[below]{\(0.\n\)}--+(0,0.3);
 	\end{tikzpicture}
 	\caption
-		[$\nu$ 空間から $g$ 空間への写像]
-		{
-			$\nu$ 空間から $g$ 空間へ置換する例。$\nu$ 空間から $g$ 空間へ置換することで
-			和を取らなければならない点の数が減少している。Liou~\cite{liou}より。
-		}
+	[\(\nu\) 空間から \(g\) 空間への写像]
+	{
+		\(\nu\) 空間から \(g\) 空間へ置換する例。
+		上図は吸収係数と波数の模式的なグラフであり、
+		下図はそれをもとに吸収係数の累積確率密度分布関数へと置換したグラフである。
+		\(\nu\) 空間から \(g\) 空間へ置換することで
+		和を取らなければならない点の数が減少している。Liou~\cite{liou}より。
+	}
 \end{figure}
 
-波数区間 $\Delta\nu$ における $k_\nu$ に対する正規化確率密度関数が
-$f[k]$ で与えられ、その最大値と最小値がそれぞれ $k_{\mathrm{min}}\to0$、
-$k_{\mathrm{max}}\to\infty$ だとすると、分光透過率は
+波数区間 \(\Delta\nu\) における \(k_\nu\) に対する正規化確率密度関数が
+\(f[k]\) で与えられ、その最大値と最小値がそれぞれ \(k_{\mathrm{min}}\to0\)、
+\(k_{\mathrm{max}}\to\infty\) だとすると、分光透過率は
 \begin{equation}
 	T_{\bar\nu}[u]=\int_{\Delta\nu}\exp[-k_\nu u]\frac{d\nu}{\Delta\nu}
 	=\int^\infty_0 \exp[-ku]f[k]\,dk
 \end{equation}
-で表すことができる。これより、確率密度関数 $f$ は分光透過率のラプラス逆変換であるとわかる。
+で表すことができる。これより、確率密度関数 \(f\) は分光透過率のラプラス逆変換であるとわかる。
 \begin{equation}
 	f[k]=\mathcal{L}^{-1}[T_{\bar\nu}[u]]
 \end{equation}
@@ -631,16 +591,16 @@ $k_{\mathrm{max}}\to\infty$ だとすると、分光透過率は
 \begin{equation}
 	g[k]=\int^k_0 f[k]\,dk
 \end{equation}
-$g[0]=0$、$g[k\to\infty]=1$、$dg=f\,dk$ であるから、分光透過率は次で表すことができる。
+\(g[0]=0\)、\(g[k\to\infty]=1\)、\(dg=f\,dk\) であるから、分光透過率は次で表すことができる。
 \begin{equation}
 	T_{\bar\nu}[u]=\int^1_0 \exp[-k[g]u]\,dg\simeq\sum_j\exp[-k[g_j]u]\,\Delta g_j
 \end{equation}
-これにより、分光透過率の計算を、冗長な波数区間における積分から、$g$ 空間における積分に
+これにより、分光透過率の計算を、冗長な波数区間における積分から、\(g\) 空間における積分に
 置換し、指数項の有限和によって求めることができるようになった。
 
 \subsection{不均質大気への応用}
-今述べた相関 $k$ 分布法の理論は、$\nu$ 積分を $g$ 積分で置き換えるために、
-吸収係数 $k$ が一定であると仮定していた。現実大気では、吸収係数は圧力に応じて変化するので、
+今述べた相関 \(k\) 分布法の理論は、\(\nu\) 積分を \(g\) 積分で置き換えるために、
+吸収係数 \(k\) が一定であると仮定していた。現実大気では、吸収係数は圧力に応じて変化するので、
 鉛直方向の吸収係数の変化を考えなければならない。すなわち、吸収係数が一定であると仮定して
 導かれた 2 つの積分が、鉛直方向に吸収係数が変化しても等価であるかを評価しなければならない。
 \begin{equation}
@@ -649,26 +609,26 @@ $g[0]=0$、$g[k\to\infty]=1$、$dg=f\,dk$ であるから、分光透過率は�
 	\hmeqq\int^1_0\exp\left[-\int_uk[g]\,du\right]dg
 \end{equation}
 
-最初に、波数区間 $-\Delta\nu/2$ から $\Delta\nu/2$ で単一の吸収線を考えよう。
-吸収線の中心では $\nu[k_{\mathrm{max}}]=0$、吸収線の端では
-$|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下になる。
+最初に、波数区間 \(-\Delta\nu/2\) から \(\Delta\nu/2\) で単一の吸収線を考えよう。
+吸収線の中心では \(\nu[k_{\mathrm{max}}]=0\)、吸収線の端では
+\(|\nu[k_{\mathrm{min}}]|=\Delta\nu/2\) となり、累積密度関数は以下になる。
 \begin{equation}
 	g[k]=\int^k_0 f[k]\,dk
 	=\frac{2}{\Delta\nu}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
 	=\frac{2}{\Delta\nu}\nu[k]-1
 \end{equation}
-そして、$(2/\Delta\nu)\,d\nu=dg$となる。
-すなわち、単一の吸収線の場合は $\nu$ 積分を $g$ 積分に置き換えることができる
+そして、\((2/\Delta\nu)\,d\nu=dg\)となる。
+すなわち、単一の吸収線の場合は \(\nu\) 積分を \(g\) 積分に置き換えることができる
 
-次に、波数区間 $\Delta\nu$ 内で周期的に生起される吸収線を考える。
-吸収線の間隔が $\delta$ であるとすると、
+次に、波数区間 \(\Delta\nu\) 内で周期的に生起される吸収線を考える。
+吸収線の間隔が \(\delta\) であるとすると、
 \begin{equation}
 	g[k]=\int^k_0 f[k]\,dk
 	=\frac{2}{\delta}\int^k_{k_{\mathrm{min}}}\left|\frac{d\nu}{dk}\right|_{k=k'}dk'
 	=\frac{2}{\delta}\nu[k]-1
 \end{equation}
-そして、$(2/\Delta\nu)\,d\nu=dg$となる。
-したがって、この場合も $\nu$ 積分を $g$ 積分に置き換えることができる。
+そして、\((2/\Delta\nu)\,d\nu=dg\)となる。
+したがって、この場合も \(\nu\) 積分を \(g\) 積分に置き換えることができる。
 
 \section{放射フラックス密度から温度分布を求める}
 ここまでの議論で、大気放射フラックス密度を求めた。大気放射フラックス密度から大気の温度分布を
@@ -681,7 +641,7 @@ $|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下に
 	=-\frac{\partial}{\partial z}(F_\text{太陽放射}-F_\text{熱赤外放射})
 \end{equation}
 
-ここで、$C_p$ は定圧比熱、$F$ は正味の放射フラックス密度である。
+ここで、\(C_p\) は定圧比熱、\(F\) は正味の放射フラックス密度である。
 
 \section{まとめと今後の展望}
 
@@ -690,29 +650,52 @@ $|\nu[k_{\mathrm{min}}]|=\Delta\nu/2$ となり、累積密度関数は以下に
 放射伝達方程式の解法や、放射強度の一般的な形式解を求めた。
 
 そして、大気放射フラックス密度を実際に計算する方法について学んでいる。その手法の一つである
-相関 $k$ 分布法は $\nu$ 積分を $g$ 積分に置換し、計算量を少なくすることができる手法である。
-大気放射フラックス密度 $F$ が計算できると、$\partial F/\partial z$ より熱が収束する高度が
+相関 \(k\) 分布法は \(\nu\) 積分を \(g\) 積分に置換し、計算量を少なくすることができる手法である。
+大気放射フラックス密度 \(F\) が計算できると、\(\partial F/\partial z\) より熱が収束する高度が
 わかるので、温度分布を求めることができる。
 
-現在は、相関 $k$ 分布法で計算をする手順を学んでいるので、実際に相関 $k$ 分布法を用いた計算を
+現在は、相関 \(k\) 分布法で計算をする手順を学んでいるので、実際に相関 \(k\) 分布法を用いた計算を
 行ってみたいと考えている。
 
 \clearpage
 \appendix
-\chapter{付録}
+\chapter{ウィーンの変位則の導出}
 黒体放射の最大放射強度の波長を求めるために、プランク関数を波長で偏微分する。
-\begin{align*}
-\frac{\partial B_\lambda[T]}{\partial\lambda}
-&=\frac{\partial}{\partial\lambda}\frac{C_1\lambda^{-5}}{\pi(\exp[C_2/(\lambda T)]-1)}\\
+\begin{align}
+	\frac{\partial B_\lambda[T]}{\partial\lambda}
+	&=\frac{\partial}{\partial\lambda}\left[\frac{2\pi hc}{\lambda^5}
+		\frac{1}{\exp[hc/(\lambda k_\mathrm{B}T)]-1}\right]\notag\\
+	&=2hc\left(\frac{hc}{k_\mathrm{B}T\lambda^7}
+		\frac{\exp[hc/(\lambda k_\mathrm{B}T)]}{\exp[hc/(\lambda k_\mathrm{B}T)]-1)^2}
+		-\frac{1}{\lambda^6}\frac{5}{\exp[hc/(\lambda k_\mathrm{B}T)]-1}\right)\label{dbdl}
+\end{align}
 
-\end{align*}
+\eqref{dbdl} が \(0\) になるような \(\lambda\) の値が、黒体放射の放射強度が
+最大になる波長になるので、それを求める。ここで、\(x=hc/(\lambda k_\mathrm{B})\) とおくと、
+\begin{equation}
+	\left(\frac{x}{1-e^{-x}}-5\right)\frac{1}{e^x-1}=0.\label{dbdlx}
+\end{equation}
+
+この式を満たすような \(x\) の値を解析的に求めることはできないが、
+\(f[x]=x/(1-e^{-x})\) が連続であり、 \(x\to-\infty\) で \(f\to0\)、
+\(x\to\infty\) で \(f\to\infty\) であることから、\eqref{dbdlx} を
+満たすような \(x\) の値が存在することはわかる。この値を \(a'\) と
+すると、
+\begin{align}
+	\frac{hc}{\lambda k_\mathrm{B}T}&=a'\\
+	\lambda&=\frac{hc}{a'k_\mathrm{B}}\frac{1}{T}=\frac{a}{T}
+\end{align}
+を得る。
 
 \clearpage
 \begin{thebibliography}{9}
-	\bibitem{liou} 大気放射学 ---衛星リモートセンシングと気候問題へのアプローチ---
-		K. N. Liou（著） 藤枝 鋼、深堀 正志（翻訳）
-		共立出版 \textbf{(2014)}\quad672ページ
-	\bibitem{asano} 大気放射学の基礎 浅野正二（著） 朝倉書店 \textbf{(2010)}\quad267ページ
+	\bibitem{liou} K. N. Liou（著） 藤枝 鋼、深堀 正志（翻訳）
+	『大気放射学 ---衛星リモートセンシングと気候問題へのアプローチ---』
+	共立出版 \textbf{(2014)}\quad672ページ
+	\bibitem{vallis} Geoffrey K. Vallis,
+	\textit{Atmospheric and Oceanic Fluid Dynamics ---Fundamentals and Large-Scale Circulation}
+	Cambridge University Press, \textbf{2017}.\quad pp.964
+	\bibitem{asano} 浅野正二『大気放射学の基礎』朝倉書店 \textbf{(2010)}\quad267ページ
 \end{thebibliography}
 
 \pagebreak
