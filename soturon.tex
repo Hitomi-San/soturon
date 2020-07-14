@@ -659,6 +659,12 @@ Scale=0.89,
 
 \clearpage
 \appendix
+\chapter{プランク関数の導出}
+体積が \(V\) の中が空洞な箱があって、温度 \(T\) の熱浴に接している場合を考える。
+この箱の中に存在する電磁波動が箱の外と熱平衡にある時、箱の壁に小さい穴を
+開けると、その穴は外界から見ると黒体として近似できるので、この穴から
+漏れ出る放射強度と波長の関係がプランク関数となる。
+
 \chapter{ウィーンの変位則の導出}
 黒体放射の最大放射強度の波長を求めるために、プランク関数を波長で偏微分する。
 \begin{align}
@@ -670,22 +676,23 @@ Scale=0.89,
 		-\frac{1}{\lambda^6}\frac{5}{\exp[hc/(\lambda k_\mathrm{B}T)]-1}\right)\label{dbdl}
 \end{align}
 
-\eqref{dbdl} が \(0\) になるような \(\lambda\) の値が、黒体放射の放射強度が
-最大になる波長になるので、それを求める。ここで、\(x=hc/(\lambda k_\mathrm{B})\) とおくと、
+\eqref{dbdl} が \(0\) になるような \(\lambda\) の値 \(\lambda_m\) が、
+黒体放射の放射強度を最大にする波長になるので、それを求める。ここで、
+\(x=hc/(\lambda_m k_\mathrm{B}T)\) とおくと、
 \begin{equation}
 	\left(\frac{x}{1-e^{-x}}-5\right)\frac{1}{e^x-1}=0.\label{dbdlx}
 \end{equation}
 
 この式を満たすような \(x\) の値を解析的に求めることはできないが、
-\(f[x]=x/(1-e^{-x})\) が連続であり、 \(x\to-\infty\) で \(f\to0\)、
-\(x\to\infty\) で \(f\to\infty\) であることから、\eqref{dbdlx} を
-満たすような \(x\) の値が存在することはわかる。この値を \(a'\) と
-すると、
+\(f[x]=x/(1-e^{-x})\) が \(x\neq0\) で連続であり、 \(x\to-\infty\) で \(f\to0\)、
+\(x\to\infty\) で \(f\to\infty\) であることから、\(f[x]=5\) を満たすような、
+すなわち \eqref{dbdlx} を \(0\) にするような \(x\) の値が存在することはわかる。
+この値を \(a'\) とすると、
 \begin{align}
-	\frac{hc}{\lambda k_\mathrm{B}T}&=a'\\
-	\lambda&=\frac{hc}{a'k_\mathrm{B}}\frac{1}{T}=\frac{a}{T}
+	\frac{hc}{\lambda_m k_\mathrm{B}T}&=a'\\
+	\lambda_m&=\frac{hc}{a'k_\mathrm{B}}\frac{1}{T}=\frac{a}{T}
 \end{align}
-を得る。
+を得る。ここで、\(a=hc/(a'k_\mathrm{B})\) であり、これがウィーンの変位定数である。
 
 \clearpage
 \begin{thebibliography}{9}
