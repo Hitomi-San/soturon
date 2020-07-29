@@ -660,10 +660,40 @@ Scale=0.89,
 \clearpage
 \appendix
 \chapter{プランク関数の導出}
-体積が \(V\) の中が空洞な箱があって、温度 \(T\) の熱浴に接している場合を考える。
-この箱の中に存在する電磁波動が箱の外と熱平衡にある時、箱の壁に小さい穴を
-開けると、その穴は外界から見ると黒体として近似できるので、この穴から
-漏れ出る放射強度と波長の関係がプランク関数となる。
+体積が \(V\) の中が空洞な箱があって、温度 \(T\) の熱浴に接している場合を考える。この箱の中に
+存在する電磁波動が箱の外と熱平衡にある時、箱の壁に小さい穴を開けると、その穴は外界から見ると
+黒体として近似できるので、この穴から漏れ出る放射強度と波長の関係がプランク関数となる。
+
+角振動数が \(\omega\) から \(\omega+d\omega\) の範囲にある振動子の数を \(Vg[\omega]d\omega\)
+とすると、
+\begin{equation}
+	g[\omega]=\frac{\omega^2}{\pi^2c^3}
+\end{equation}
+である。ここで、\(c\) は光速である。温度 \(T\) で熱平衡にある振動子の平均エネルギーは、零点
+エネルギーを除くと以下である。
+\begin{equation}
+	\epsilon_\omega[T]=\frac{\hbar\omega}{\exp[\hbar\omega/(k_\mathrm{B}T)]-1}
+\end{equation}
+ここで \(\hbar=h/2\pi\) はディラック定数である。したがって、箱の中の電磁波のうち、\(\omega\)
+から \(\omega+d\omega\) 範囲の角振動数を持つもののエネルギーは、単位体積あたりの式で、以下の
+ように書き表される。
+\begin{equation}
+	u_\omega[T]d\omega=\epsilon_\omega[T]g[\theta]d\omega
+	=\frac{\hbar\omega^3}{\pi^2c^2}\frac{d\omega}{\exp[\hbar\omega/(k_\mathrm{B}T)]-1}
+\end{equation}
+波長 \(\lambda\) に関する式に書き直せば、
+\begin{equation}
+	\mathfrak{u}_\lambda[T]d\lambda=u_\omega[T]d\omega
+	=\frac{8\pi hc}{\lambda^5}\frac{d\lambda}{\exp[hc/(\lambda k_\mathrm{B}T)]-1}
+\end{equation}
+である。
+
+射出された光子は、すべての方向（立体角 \(4\pi\)）に光速 \(c\) で伝わるから、放射強度は
+\begin{equation}
+	B_\lambda[T]=\mathfrak{u}_\lambda\frac{c}{4\pi}=
+	\frac{2hc^2}{\lambda^5(\exp[hc/(k_\mathrm{B}\lambda T)]-1)}
+\end{equation}
+となる。
 
 \chapter{ウィーンの変位則の導出}
 黒体放射の最大放射強度の波長を求めるために、プランク関数を波長で偏微分する。
