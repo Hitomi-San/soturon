@@ -665,7 +665,16 @@ Scale=0.89,
 黒体として近似できるので、この穴から漏れ出る放射強度と波長の関係がプランク関数となる。
 
 角振動数が \(\omega\) から \(\omega+d\omega\) の範囲にある振動子の数を \(Vg[\omega]d\omega\)
-とすると、
+とする。角振動数と波数の関係は \(\omega=c\nu\)。波数ベクトル \(\mathbold{\nu}\) の立体要素
+\(d\mathbold{\nu}=d\nu_x\,d\nu_y\,d\nu_z\) の中にある固有振動モードの数は
+\((V/8\pi^3)d\nu_x\,d\nu_y\,d\nu_z\) であるから、\(|\mathbold{\nu}|=\nu\) については、\(\nu\)
+と \(\nu+d\nu\) の間に、
+\begin{equation}
+	\iint_{\nu<\sqrt{\nu_x^2+\nu_y^2+\nu_z^2}<\nu+d\nu}\frac{V}{8\pi^3}d\nu_x\,d\nu_y\,d\nu_z
+	=\frac{V}{8\pi^3}\cdot4\pi\nu^2\,d\nu=\frac{V}{2\pi^2}\nu^2\,d\nu
+\end{equation}
+だけのモードがある。これを \(\omega\) について書き直せば、\(\omega\) と \(\omega+d\omega\) の
+間に、\((V/2\pi^2c^3)\omega^2\,d\omega\) だけの数の固有振動モードがある。以上を踏まえると、
 \begin{equation}
 	g[\omega]=\frac{\omega^2}{\pi^2c^3}
 \end{equation}
